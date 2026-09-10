@@ -1,0 +1,3 @@
+[submodule "external/ServerEngine"]
+	path = external/ServerEngine
+	url = https://github.com/thanhst/Server-engine.git
