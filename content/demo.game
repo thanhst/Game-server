@@ -1,0 +1,164 @@
+# New illustrative balance for the C++ prototype; NOT parity with HUNR2026.
+# Definitions use semantic IDs. No client sprites, audio, maps, or binary assets.
+
+[map arena]
+width=500
+height=500
+
+[effect melee_hit]
+handler=damage
+magnitude=4
+scaling_attribute=attack
+scaling_factor=1
+tags=physical
+visual=melee_hit
+
+[effect energy_hit]
+handler=damage
+magnitude=12
+scaling_attribute=attack
+scaling_factor=1.2
+tags=energy
+visual=energy_burst
+
+[effect restore_health]
+handler=heal
+magnitude=25
+scaling_attribute=attack
+scaling_factor=0.5
+visual=healing_glow
+
+[effect protective_shield]
+handler=shield
+magnitude=30
+scaling_attribute=attack
+scaling_factor=0.5
+duration_ms=5000
+stacking=refresh
+visual=shield_bubble
+
+[effect poison_tick]
+handler=periodic_damage
+magnitude=4
+duration_ms=6000
+period_ms=2000
+stacking=stack
+max_stacks=3
+tags=poison
+visual=poison_cloud
+
+[effect stunned]
+handler=control
+duration_ms=1500
+tags=stunned
+visual=stun_stars
+
+[effect rage_attack]
+handler=modifier
+attribute=attack
+magnitude=12
+duration_ms=6000
+stacking=refresh
+tags=rage
+visual=rage_aura
+
+[skill melee]
+name=Melee strike
+mana_cost=0
+cooldown_ms=700
+range=3
+target=enemy
+effects=melee_hit
+
+[skill energy]
+name=Energy blast
+mana_cost=12
+cooldown_ms=1800
+range=24
+radius=3
+max_targets=3
+target=enemy
+effects=energy_hit
+
+[skill heal]
+name=Restoration
+mana_cost=18
+cooldown_ms=5000
+range=18
+target=ally
+effects=restore_health
+
+[skill shield]
+name=Protective shield
+mana_cost=15
+cooldown_ms=8000
+target=self
+effects=protective_shield
+
+[skill poison]
+name=Poison cloud
+mana_cost=16
+cooldown_ms=6000
+range=18
+radius=4
+max_targets=4
+target=enemy
+effects=poison_tick
+
+[skill stun]
+name=Stunning strike
+mana_cost=20
+cooldown_ms=10000
+range=8
+target=enemy
+effects=stunned
+
+[skill rage]
+name=Fighting spirit
+mana_cost=20
+cooldown_ms=12000
+target=self
+effects=rage_attack
+
+[character earth]
+name=Earth fighter
+legacy_class=0
+stat.hp=120
+stat.mana=100
+stat.attack=15
+stat.defense=5
+stat.speed=8
+tags=player,earth
+skills=melee,energy,shield,stun
+
+[character namek]
+name=Namek guardian
+legacy_class=1
+stat.hp=140
+stat.mana=120
+stat.attack=12
+stat.defense=6
+stat.speed=7
+tags=player,namek
+skills=melee,energy,heal,poison
+
+[character saiyan]
+name=Saiyan warrior
+legacy_class=2
+stat.hp=150
+stat.mana=80
+stat.attack=19
+stat.defense=4
+stat.speed=8
+tags=player,saiyan
+skills=melee,energy,shield,rage
+
+[character mob]
+name=Training creature
+stat.hp=160
+stat.mana=0
+stat.attack=8
+stat.defense=2
+stat.speed=4
+tags=enemy,monster,mob
+skills=melee

@@ -1,0 +1,72 @@
+[
+  {
+    "relative": ".m2",
+    "files": 1937,
+    "bytes": 98071392.0
+  },
+  {
+    "relative": "AddItem",
+    "files": 114,
+    "bytes": 207655.0
+  },
+  {
+    "relative": "backup",
+    "files": 303,
+    "bytes": 248861627.0
+  },
+  {
+    "relative": "backup_sql",
+    "files": 32,
+    "bytes": 85171742.0
+  },
+  {
+    "relative": "BuyItem",
+    "files": 29,
+    "bytes": 20349.0
+  },
+  {
+    "relative": "data",
+    "files": 420,
+    "bytes": 19271014.0
+  },
+  {
+    "relative": "DropItem",
+    "files": 4,
+    "bytes": 642.0
+  },
+  {
+    "relative": "logs",
+    "files": 2,
+    "bytes": 0.0
+  },
+  {
+    "relative": "LogThoiVang",
+    "files": 6,
+    "bytes": 97482.0
+  },
+  {
+    "relative": "resources",
+    "files": 6876,
+    "bytes": 41122332.0
+  },
+  {
+    "relative": "autorun_lock.txt",
+    "files": 1,
+    "bytes": 8.0
+  },
+  {
+    "relative": "matrix_pc_debug.txt",
+    "files": 1,
+    "bytes": 0.0
+  },
+  {
+    "relative": "dummy",
+    "files": 1,
+    "bytes": 139.0
+  },
+  {
+    "relative": "SQL_HUNR_2025.sql",
+    "files": 1,
+    "bytes": 5456663.0
+  }
+]

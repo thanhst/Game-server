@@ -1,0 +1,2512 @@
+[
+  {
+    "path": "src/main/java/com/ngocrong/api/DropRateController.java",
+    "bytes": 928,
+    "sha256": "66CFFA75299437558AE8E164FD73EA6B93D4012B402EEE515A0E183181E0FC08"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/api/SecurityConfig.java",
+    "bytes": 803,
+    "sha256": "ADAD9B87C1FA6851B8738415418F6198C66774DD441869F1581E9DE944333066"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/api/ServerController.java",
+    "bytes": 4226,
+    "sha256": "1A8F838A0F88CD007101860DDD259FCB3DB67E829AD7A8C56E20CFF924436388"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/api/UserController.java",
+    "bytes": 1824,
+    "sha256": "074BE3245FDA30C1F9A5C0BDC172162564C3882C028BE2DF168F2F39435948AA"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/android/Android13.java",
+    "bytes": 3443,
+    "sha256": "7D46468BAAD759B45BBA1FB87FF68EFDF990BECB3B4CCD34FD0A97736B93B03C"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/android/Android14.java",
+    "bytes": 3372,
+    "sha256": "8139303A66EA37E4D1F71955AEBCF0020BB01E387FCF2BE2564E67B28D606E6B"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/android/Android15.java",
+    "bytes": 3592,
+    "sha256": "63C5586F3D27B6F3B7892283927CEEA0F79340C734A576FF5738C3D46085A405"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/android/Android19.java",
+    "bytes": 3390,
+    "sha256": "8AAA381CA13DEC90A1288060F730B06E79A2C70BC8DD798DA4DBD3066442FF8C"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/android/Android20.java",
+    "bytes": 3390,
+    "sha256": "D868A0D1BB21DCDC5630F139B3C4B4C028A7C1477D2CC74F81499F0C13EDF0F1"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/android/DarkPic.java",
+    "bytes": 7069,
+    "sha256": "557A682FCD56897F20DF77594A9D882FEA9DBD8173033EFFFB6DF6713D9BC8A0"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/android/KingKong.java",
+    "bytes": 3312,
+    "sha256": "C27D88BF23107ED6C8D72568BE2249BB879E6FB7C74C5022D342484EAFD6A0A5"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/android/Pic.java",
+    "bytes": 3440,
+    "sha256": "C03746390E64BD782A34287C1B8F4DE2D5F9407E84962069052A4EFE1C749E57"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/android/Poc.java",
+    "bytes": 3369,
+    "sha256": "761D3476A9AF4AE12C49C884207B7346A2EBF6EAE91E71D9CA195D43DB0C376D"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/BaoCat.java",
+    "bytes": 2748,
+    "sha256": "19241CA06F6C88B7642E8996B55EE31AF1360396AE7C96C559ABEC26D54731C1"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/barrack/GeneralBlue.java",
+    "bytes": 2905,
+    "sha256": "176E9CEB271CF41428762F2E1F656B56A065CB916E00668A9B008A7F3936E23F"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/barrack/GeneralWhite.java",
+    "bytes": 3843,
+    "sha256": "07697AD68C1774D2C39B0962DE39CCCC6D7BBFA7C810D1153F0328CC4A12D854"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/barrack/MajorMetallitron.java",
+    "bytes": 3797,
+    "sha256": "EAFFDC6115BD6E11CE64CE8643B0FCCE141BE36EC64C02CDDE206B23357C2569"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/barrack/NinjaMurasaki.java",
+    "bytes": 4497,
+    "sha256": "139A2E42867312DB66BFD99A087D784755464FAECDF89996F7C533E3A238207B"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/barrack/Robot.java",
+    "bytes": 2399,
+    "sha256": "F1F7E1883D763A78121AFA45608D9AAA0DBE3887336C0AEBA7D8E524B71BEDC7"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/bill/Berus.java",
+    "bytes": 5759,
+    "sha256": "2CA49B7DF9E16EF29743D408D80FF9EFE6D7DE3AA4AF2003324AE68E4C6F08BE"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/bill/Whis.java",
+    "bytes": 5366,
+    "sha256": "4CA02A96A5AC49F9EF25D14C871704AE7369C441242E0015E07B661CF1510C42"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/BlackGoku.java",
+    "bytes": 4719,
+    "sha256": "6EC90183A3090A903D645F409784046E7ADD347F63376017C0D44AAC5B784AA2"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/BossDisciple/Broly.java",
+    "bytes": 18586,
+    "sha256": "0FE20FB5427526BBE1DACEF65A1E1DC528E85ABBFBCA3F3B0666DDDA7137B719"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/BossDisciple/SuperBroly.java",
+    "bytes": 19271,
+    "sha256": "7A3B3E1E67136DE7CA17CB22454DF1B75B8284DEB5224DEC14C0928755986968"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/BossDisciple/SuperMabu.java",
+    "bytes": 6323,
+    "sha256": "75A3C0B8D39E10DB65D868EA6F1C0C46F86C01F6615D5B54073EBC580731D121"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/BossSurvival.java",
+    "bytes": 3213,
+    "sha256": "FF9C2E3809E0CA2717E5DEAE9EA4EFAF7C2D44D6DC06CA7B3D8350B2E01B1411"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/BossTet.java",
+    "bytes": 3626,
+    "sha256": "B6027600D5C42341CF1300E2E887CF631FFF22EC623C6B8B32A541F30BD300F9"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/Cell/SieuBoHung.java",
+    "bytes": 5102,
+    "sha256": "227B7EBF3A0F94C5A6D7E52A341C39CDFB9409DB27EEF4D9CC04903C1DCAA9BE"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/Cell/XenBoHung.java",
+    "bytes": 5419,
+    "sha256": "20E485A78AEA8AA3DAD2E2CFFC239C8C4E6282DECCED7AFBDFE0DA573DF2E21B"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/Cell/XenCon.java",
+    "bytes": 6046,
+    "sha256": "70816DA3D6959F0E5024DF2754D8099621E59291416155277BADF7C683610F1D"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/Chilled.java",
+    "bytes": 5055,
+    "sha256": "CEA7422330607C7C16BB31C712188D4283C46CFB39DE956FEE233EF526F9284B"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/dhvt23/Bardock.java",
+    "bytes": 1857,
+    "sha256": "40332D6603706DCCBF0113B4C843B808464D1106168F8A17C3774C3AFA23D98D"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/dhvt23/BossDHVT.java",
+    "bytes": 3787,
+    "sha256": "1CB13141C96B431FEA922A10253F44F5786D1F092F9C6916157AB1D21A626422"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/dhvt23/ChanXu.java",
+    "bytes": 1577,
+    "sha256": "6818F7FF510734397714216B8F3A6575F5F5C9570D1C41719EBFB9F5AEE6685D"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/dhvt23/ChaPa.java",
+    "bytes": 1572,
+    "sha256": "6A1B592DC9CAF30826ABE37209A333372FC78861B441D2F79022775A1C3C511B"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/dhvt23/JackyChun.java",
+    "bytes": 1613,
+    "sha256": "F16E67A035641EE32F6053F189F038FF6971A196A4B9A47295740ED349833670"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/dhvt23/LiuLiu.java",
+    "bytes": 1604,
+    "sha256": "2F9138369844B050B7F53E681014B929E935A5E64EBD4C4840B5F8000755CBD7"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/dhvt23/ODo.java",
+    "bytes": 1570,
+    "sha256": "B35166FA471E7810C291DF7B00163F0F41C004FA053ED5093571604B588C9F8C"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/dhvt23/Picolo.java",
+    "bytes": 1851,
+    "sha256": "7B495014A6FD72A34DD3A2F844127C8BA25D636168DB792C7897864CB1EA1C1F"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/dhvt23/PonPut.java",
+    "bytes": 1575,
+    "sha256": "F79616BA8FADFBB1E870AFE169F1F87F16BB1EA7BD46AEFEEC3DC4052DF57170"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/dhvt23/SoiHecQuyn.java",
+    "bytes": 1592,
+    "sha256": "CF6D9085A2817F849BFB486ABE3AFBBF74F492625DD727D2C69450DC8CF6429D"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/dhvt23/TauPayPay.java",
+    "bytes": 1828,
+    "sha256": "EB86C3AD9D877C5C7483A0F1197ED5105D1FE8B6A626EA2C2009615F6617CBAE"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/dhvt23/ThienXinHang.java",
+    "bytes": 1619,
+    "sha256": "7BAA2C1A2A92B2CA91C40FA339FF039FBCF971742C0D1B097AD298356BA295FF"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/dhvt23/Xinbato.java",
+    "bytes": 1580,
+    "sha256": "38AB7C95A8BDABDED4C770521D354D91B66DAD2F430E84106CC7F711EB96EB87"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/dhvt23/Yamcha.java",
+    "bytes": 1708,
+    "sha256": "1505757950DEAF97EAD8EF5FD74B9BA8FB4B2F724A033BDEED63B0D29E0C0165"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/DuongTang.java",
+    "bytes": 1180,
+    "sha256": "E7AD84788761B1EE68A6FAEEFF7D8FEC3426CC07433334CA6EF9E26AB3FF9977"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/fide/Cooler.java",
+    "bytes": 5241,
+    "sha256": "4C39C3E5F98913008D93D67AB3FA4F90D5AF3126C747C76FC128BB387D378801"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/fide/Fide.java",
+    "bytes": 4691,
+    "sha256": "BCDBFFD9383ED0BD4A51E3C8ABCC8020BA1EB12364110A9F4CAF95D933782B0A"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/fide/FideGold.java",
+    "bytes": 3722,
+    "sha256": "3A86FDBD31DAAF39FD8D307456956B795DCE88CAF39EEEB18286EEB151BFB5F1"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/fide/KuKu.java",
+    "bytes": 3099,
+    "sha256": "C78A4D3CFC904229F66378B98933AF688C4964249BA83F35A79243EDFEF71240"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/fide/MapDauDinh.java",
+    "bytes": 3216,
+    "sha256": "E88848B1B5BE8C3C8C771C911682CB0A3007FA9E95532EAB8EA8F81828D6C46C"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/fide/RamBo.java",
+    "bytes": 3173,
+    "sha256": "2046C020562D0B6749262BE95BF7AD51184623AEF231981966B50A95FE7623A1"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/fide/So1.java",
+    "bytes": 4687,
+    "sha256": "68077DD4F1A39FAAC11E64F0608B439251229F46A5623920EFECBC21E17F8DDD"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/fide/So2.java",
+    "bytes": 4688,
+    "sha256": "9C3C74DBB22012E74B504BFCE9638E11851A8E07081D52711D31F0DC40344642"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/fide/So3.java",
+    "bytes": 4614,
+    "sha256": "CD0651F261E48B843903007CCBDEAD2B1CDE37CD13934B82709BD529592843DF"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/fide/So4.java",
+    "bytes": 4656,
+    "sha256": "CB8B842135D565DF0A60E16A33DC14CA11A3A8870581EA84E259A62FCC76A3D9"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/fide/TieuDoiTruong.java",
+    "bytes": 4522,
+    "sha256": "C31AD00ABAB3A5CFFB7BAB8EA909C34D0C7F6BE74EECADFBEFF3CE8FD8FD21EC"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/future/BlackWhite.java",
+    "bytes": 7305,
+    "sha256": "DE82699B5C4E1B2563D46DD5D4415719E573AF268F38E435762E4329AFA6612D"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/future/Zamasu.java",
+    "bytes": 5996,
+    "sha256": "060278C67B428B6BB105EAE88720502EF2552DD315544107CD475C5789FC3E0E"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/GaPika.java",
+    "bytes": 2467,
+    "sha256": "224C7C2C01F79E653159E56BBAB7DE5FA0BDAFE0D15B778F962DE3619B532B35"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/karin/Karin.java",
+    "bytes": 2974,
+    "sha256": "6CE5F62C133FB76D6AD2B09660D98AD48977352577417F72159E96CFD0A388D7"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/karin/TaoPaiPai.java",
+    "bytes": 1671,
+    "sha256": "10693A55DEE9F973E32843728ABEBBC63CFBBBCE181C05079DAE11433A3113CD"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/karin/Yajiro.java",
+    "bytes": 3042,
+    "sha256": "933AFAB43C43B6612D35BB8170FE56DE489A336228EE699715F851E05C8F83DF"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/mabu/BuiBui.java",
+    "bytes": 3788,
+    "sha256": "FE21655D300F1219427AC7A1B8B68305EBD6897A3066D0C1C37641C680912723"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/mabu/Drabura.java",
+    "bytes": 3850,
+    "sha256": "CA6AD03B22CA265ECFA1471B6BF012935F0E94110867A24DF44167A01B5363EA"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/mabu/Mabu.java",
+    "bytes": 4237,
+    "sha256": "24AAA577F8D5FDDF7DEA2D8748B66D7137EAD27E530F131E7FBF7BF743FB46D0"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/mabu/Yacon.java",
+    "bytes": 3808,
+    "sha256": "D44AEE671001A3DAD9303DB8E78601D16DB986BCB014BB47A1F2D3AAF5BA4BE8"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/MaTroi.java",
+    "bytes": 6306,
+    "sha256": "95E40277846F9A8886FD81E62ECEB5F5BE8E18F6E7B084BDEBF6E23A40551172"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/MatTroi.java",
+    "bytes": 5340,
+    "sha256": "FF990C14A20C27E1321BDEBF8073B26D0DD5ACF7CF01EDE107A3FB931DE02A39"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/nguhanhson/BatGioi.java",
+    "bytes": 4733,
+    "sha256": "CA5879FEBF2EBF9EFC1976247D871E3F93E6426372E25C382E77567416282E6F"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/nguhanhson/DuongTang.java",
+    "bytes": 4857,
+    "sha256": "6EFA45BE23AF47D235021EB31E5ED1656885035210657F201BF5AB2F5CB2D27C"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/nguhanhson/NgoKhong.java",
+    "bytes": 4734,
+    "sha256": "2B1534EB87870E51252DD07049EE44994CFBEFC0101F100AD20ACCFB31DF57FD"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/Raiti.java",
+    "bytes": 3277,
+    "sha256": "F568002AE960A6EEA37FDDBEFF0565DD56C552389EF241BBA1EA6C95A3F3383E"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/Shizuka.java",
+    "bytes": 5161,
+    "sha256": "D51CB25B4FECDEC3F0640C6EACE8010A0134D29DB7BBBF189A8E448EF300FF78"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/teambojack/Bido.java",
+    "bytes": 2696,
+    "sha256": "0285E079AE657071DF6B9290E252CAF3F07BF697316A91D5DEDC47E9360C7E4D"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/teambojack/Bojack.java",
+    "bytes": 2691,
+    "sha256": "2FC0B66E480B5940E5D87AB12D550EE6EDDCBF555381AC512779F76A1AE59991"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/teambojack/Bujin.java",
+    "bytes": 2681,
+    "sha256": "E8FF97AAA9B49924CEA4F43BF9209498FE25FC8155F9215B0908C8A8F581976D"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/teambojack/Kogu.java",
+    "bytes": 2681,
+    "sha256": "FB2906C51313DD8E1074DA37E5A33CCF434A241527D478630A87EE2C629A3CF5"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/teambojack/SuperBojack.java",
+    "bytes": 4118,
+    "sha256": "FC63C31AFDC91B6D5A0BD92B0E8F3A96452414A610E94C7AB2411EC449816A4B"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/teambojack/TeamBojack.java",
+    "bytes": 5201,
+    "sha256": "BCF579A92367BC92AD86349FD096E20F42E1AA8D0E69B5A9A46317D79570888A"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/teambojack/Zangya.java",
+    "bytes": 2685,
+    "sha256": "E4432E958CFF480A2B89C40700DA96ED907B8E1252834B38D0B457654652EE89"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/teamhaitac/Brook.java",
+    "bytes": 1428,
+    "sha256": "AB90B5B423BA2067D9F0197E51574CBFA02DBDE1BED84FA65B8F4582D38E4CC0"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/teamhaitac/Chopper.java",
+    "bytes": 1436,
+    "sha256": "F5AFB5A093B5F3EAE34CBA51BD6451DFC28372AF0193BA37AE51B95015744AC5"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/teamhaitac/Franky.java",
+    "bytes": 1432,
+    "sha256": "4AEF89C7F741EC4A56F5BAB05A4BFEEE8EC416BE23D1C41CBBEEE35EF7FDB078"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/teamhaitac/Luffy.java",
+    "bytes": 1428,
+    "sha256": "15E2F18CF91E305C18EA190DE4ECF9D6277BBD14D6742E1FA7146E5C15A56CA8"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/teamhaitac/Nami.java",
+    "bytes": 1424,
+    "sha256": "5F1D06B94D57F5AC061CFA4EE984F2EFFC21C3DFEA2B537CB93A2146F0D24483"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/teamhaitac/Robin.java",
+    "bytes": 1428,
+    "sha256": "3086A8C35B65791750E44D1B9B6081DB1C4EE03988A2F878085D2E6BA508B2B5"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/teamhaitac/Sanji.java",
+    "bytes": 1428,
+    "sha256": "71C7F102CCE0500728FD56C40F4348244EAEAA24E52C6BE9EF7CB55E436B5FCD"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/teamhaitac/TeamHaiTac.java",
+    "bytes": 4281,
+    "sha256": "F9744167AF2EBDC259D6FFC32A2A66153F5E5B763CBD399F39D2458E441E8A77"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/teamhaitac/Usopp.java",
+    "bytes": 1428,
+    "sha256": "84FD2F15A39B8D4BC18A4CE205ED06513BE9838F1054D00350096CB373609A62"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/teamhaitac/Zoro.java",
+    "bytes": 1424,
+    "sha256": "AC8AECFC6FF0FDD39459242B7E4404D5E853D913ADEF17D188839CF702167006"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/teamtaydu/BatGioi.java",
+    "bytes": 1882,
+    "sha256": "F9DC3458F275EAEF3AF85AB18B83BCAF8CB5F50720EBE383B00F0C26DE629DCF"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/teamtaydu/DuongTang.java",
+    "bytes": 1794,
+    "sha256": "BB5410708049F157B291B5B94EF673F4B634EBACF3F5BB139988E3F8DB2A0F15"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/teamtaydu/NgoKhong.java",
+    "bytes": 2781,
+    "sha256": "7A2AF04E3CE433714293D8C2B920544F93A082B08996F82CC383CF2439720303"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/teamtaydu/TeamTayDu.java",
+    "bytes": 3664,
+    "sha256": "3FFC6BCBB6ED08AA05B76B66657E8E96F53A2717E0008A278D88984DD167522F"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/TestServerBoss.java",
+    "bytes": 4431,
+    "sha256": "C28CE6B7B689F4C2655347A386014ABC57165630A7BD9C97B000F186732BDF9B"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/ThoDaiCa.java",
+    "bytes": 9175,
+    "sha256": "32322E558670EDC123CE7926DD5B106D65F43C4F7C6B0E6993BF6AB5C802E2B7"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/ThoiKhong/Bardock_ThoiKhong.java",
+    "bytes": 2931,
+    "sha256": "E9BE2A07523CF011E7E293983491B5294C15F17BD4C41C0C1D9E9F72176A2D0A"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/ThoiKhong/Chilled.java",
+    "bytes": 5758,
+    "sha256": "F52C918AF59214AC016E51C12CCF9F9E13D6DA23A7C8729285F5958514CBBBBA"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/boss/Zamasu/ZamasuFusion.java",
+    "bytes": 3542,
+    "sha256": "0133B3CD48D3157AC69405BB8508AECA0D1EA5D3F2275F07EA642A82C76D0FB4"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/Bot.java",
+    "bytes": 235,
+    "sha256": "3D9AE2C9DE389452F62316207AC2407143898CB3116786E6E7E4064B7936FC00"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/BotCold.java",
+    "bytes": 5510,
+    "sha256": "F10B96E6143E8B21A1ED648D6E66CB1D172D5A16931ACAA0D782CA8C0A40A24B"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/Disciple.java",
+    "bytes": 29743,
+    "sha256": "61DF6589121D8F8BBE9522E1EF6C234B7D5FB160905BEA2A50A7E655F3F46D01"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/Escort.java",
+    "bytes": 2122,
+    "sha256": "F29AF6DFCCAC19A2583F4DA822AECD7290F03EF217F2E4B34D24087C1E8A2F97"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/MiniDisciple.java",
+    "bytes": 2235,
+    "sha256": "F22F71E38F9335CEB76B30EBC4478BDC716A7915FF3A3D26D7662786B9F414F4"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/TrongTai.java",
+    "bytes": 1890,
+    "sha256": "C7F44723B17D7346D174938EB1B124EA053B038495341821E64A2D5DE299C361"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/VirtualBot.java",
+    "bytes": 11751,
+    "sha256": "22225602B570C0CE2EEC8EB14F39A2C38BFEA625D686B249C7A6E3D09AC632F8"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/bot/VirtualBot_SoSinh.java",
+    "bytes": 21264,
+    "sha256": "6332C5CE248ADFA72B45A1410F8DD91CE5DFF82E07F19519F5292CC8155E75AC"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/calldragon/CallDragon.java",
+    "bytes": 3199,
+    "sha256": "B266A64A6B10D6617D3C71D3F59B9B66CBA51E189C3E4D848FF263629EB8D9D4"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/calldragon/CallDragon1Star.java",
+    "bytes": 7203,
+    "sha256": "EAF5C683875AC5C553BA9431DB5F5E2388A5F46C56D55C476AA1DB10EE043F50"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/calldragon/CallDragonNamek.java",
+    "bytes": 5190,
+    "sha256": "67BE4E34C89B88CF8D0DEAC4E5CB0FFEE392A1A40D6CE80D6CEBC7F52B32692C"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/clan/Clan.java",
+    "bytes": 10009,
+    "sha256": "8F6933E0F9D93023F6045064BA3684DAD4B75CD6A7DB1B5B1C1BEA299EE6B545"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/clan/ClanImage.java",
+    "bytes": 208,
+    "sha256": "D15653D1FD3C1AC1C4CCD1F9F87A80E87DCB8E4679828C65CA0699868F76844D"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/clan/ClanManager.java",
+    "bytes": 3476,
+    "sha256": "5A116A712ACCEEFC046B316BAEFF051AC461BADC684D901F7B3B2643CA629934"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/clan/ClanMember.java",
+    "bytes": 4289,
+    "sha256": "796C165A3D0A3FB6805580D23B7CF7B9ED25EAD7AA84F07D9A62C32EE03A1D37"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/clan/ClanMessage.java",
+    "bytes": 743,
+    "sha256": "EF7AB50052C664901E4A71480649FA52C90F12D42D986DEB9D996D541D2928B7"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/clan/ClanReward.java",
+    "bytes": 754,
+    "sha256": "74DFD360542B18E5BDF446B887F108D8784C81EB023A099FB65F76A0F9B99BC0"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/collection/Card.java",
+    "bytes": 3364,
+    "sha256": "F6BEFF3C0AD163732F0872FB21FD940CFEAAF7E4308AA528B00D79613266EDA8"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/collection/CardTemplate.java",
+    "bytes": 732,
+    "sha256": "03B13955111C8FB67F997E36DCCFB4F5A3642B8F792663F83769E0E610CD0B11"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/combine/CapsuleVipPro.java",
+    "bytes": 3980,
+    "sha256": "1B3CA59DCFB38B21A740BE40F90356FC676DDD433A0D315EF8AE5EE5EDED2FF3"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/combine/CapsuleVipProOption.java",
+    "bytes": 3576,
+    "sha256": "3BC38DE0DC458546415F0169EC46782B5ED4E47EFD10D9075AD8816AE6264BBA"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/combine/ChuyenHoa.java",
+    "bytes": 1095,
+    "sha256": "02F1209A728B0B1A546EE8F2DD0CA7BFF8CAEA1B334D621A82FBB3685E397C15"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/combine/Combine.java",
+    "bytes": 1413,
+    "sha256": "4F749043331497E4CA0C65D8B2EFDC8BA86C10D346AA2FDF47C5EF17B4D1D5DD"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/combine/CombineFactory.java",
+    "bytes": 3015,
+    "sha256": "AF824C2D183CC8C928F46229A9B5667F90A2E98970941C8FDB9715AABCFEC81E"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/combine/CombineType.java",
+    "bytes": 594,
+    "sha256": "813C655429AA6643F90DD702C05DA0BE37DC984AD711EF33AAB4C945FE6EBC13"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/combine/DoiDoHuyDiet.java",
+    "bytes": 4410,
+    "sha256": "FB8FCA02B4BBCEE462387692D818C280622C9A5553AB21F66F41F930DB28FB38"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/combine/DoiDoKichHoat.java",
+    "bytes": 8955,
+    "sha256": "0C29B94FEA7075F6AB373198C1470EED8EEC2335DA0292CEC577DC074FB14D13"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/combine/EpPhaLe.java",
+    "bytes": 8849,
+    "sha256": "9EE1A464435073FF9BF624D6E230B59521DC12AD1F731E4B945DF56786D428CC"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/combine/GhepDaNangCap.java",
+    "bytes": 3356,
+    "sha256": "5A7E32B4681A8B80B7F928AD932A87EA4666C0D933A73B8260FB40B1BCFE2DAB"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/combine/GhepKichHoat.java",
+    "bytes": 3924,
+    "sha256": "E36007266D421557E3AE0267C343C4B9468C2B9A4529609892DC214F45225322"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/combine/LinhThu/ApLinhThu.java",
+    "bytes": 3385,
+    "sha256": "C324B46E5E26AA544B1BA1D08CD44B541B06FA62F1A89AFA16435327004C1B34"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/combine/LinhThu/NangBacLinhThu.java",
+    "bytes": 4687,
+    "sha256": "15FBE88BBE96B2FEA8DE63A9597BE3DA8A818B10490A11F88D6A5552FAC1F3B9"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/combine/LinhThu/NangCapLinhThu.java",
+    "bytes": 8250,
+    "sha256": "45205C15F3A5491367A80A35D1570984175D5DD1BBF0D33B019675B0D42D6A56"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/combine/LinhThu/NangChiSoLinhThu.java",
+    "bytes": 15640,
+    "sha256": "C9B7419A4DEC8D86E9933338B139B68355E7B7D8DC2DCEF2A894E30F76BD4D1D"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/combine/LinhThu/XoaChiSoLinhThu.java",
+    "bytes": 3580,
+    "sha256": "70BAADE190A225AB68727514949022C691BF9F89CE2270C3BBC3ECB64903AC17"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/combine/MaThuatHoa.java",
+    "bytes": 9088,
+    "sha256": "303435F18473BAD1A57435FB31B7C0BEBF05757A9C1211801EC415ABA3FD7C3D"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/combine/NangCap.java",
+    "bytes": 15127,
+    "sha256": "4A64A38AF63BAAF1A3F6119EDCE4286E7F62E41F018C2808DC7E3B2E2F6D1CE9"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/combine/NangCapChanThienTu.java",
+    "bytes": 8687,
+    "sha256": "D35E527BD7B537F17A690D377AA9C51C4863560D3963776366E718887DC6DF16"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/combine/NangCap_2.java",
+    "bytes": 10345,
+    "sha256": "BACD63704FE05963321931B51F86EDF9BBA2C7E3D1B6BC7136D4D92DE75FB5C9"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/combine/NangItemDeTu.java",
+    "bytes": 10494,
+    "sha256": "759F5FC303BACC674C76C2E9BEB88734007B69AF66936861E819C02AD481CA34"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/combine/NangNhanAnhSang.java",
+    "bytes": 5195,
+    "sha256": "78C72D6EB9AA3A4CAA1F5D321759FC45B29A621D13EC061F3EB27FC8738799B3"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/combine/NangOptionPorata.java",
+    "bytes": 6231,
+    "sha256": "D92EC58647CCB32AB9CB60EDEE8FD057133646D64EFF666922E024A167BE30E1"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/combine/NangOptionPorata3.java",
+    "bytes": 5973,
+    "sha256": "F466B2326101EF6ADFD214F9BC14B5ECCCAF86D8D339D1FB127F0FACE62075E5"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/combine/NangPorata.java",
+    "bytes": 8353,
+    "sha256": "98056513270CB1E2B6A35E1EBE6C4C801FACE017EA547A3D4DAD6F3FBAA8CC35"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/combine/NangPorata3.java",
+    "bytes": 7122,
+    "sha256": "C90B01EC6990453852F99EED50787239276ADE8159CCC02F51E52946DAE724C2"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/combine/NhapDa.java",
+    "bytes": 4320,
+    "sha256": "3D6F4B97F767CCC4BC020AD9068A4C671399BC5AA6E4CE0AD8B548A85D34225A"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/combine/NhapNgoc.java",
+    "bytes": 3081,
+    "sha256": "B0C98F03E3444691A69BB88FB5D47D32205FFFC040578127D2FB910D408C9A6D"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/combine/PhaLeHoa.java",
+    "bytes": 7025,
+    "sha256": "309F4AE905E4492267DA4747EF007DD8B7DEDA670152151BD9E312F14754AACA"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/combine/TachDoKichHoat.java",
+    "bytes": 2869,
+    "sha256": "F7047436E57BDFC452AF63E582B7FCAC97405E778C73719F2FDD6B20D7F54034"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/combine/TachDoThanLinh.java",
+    "bytes": 3041,
+    "sha256": "3B167263AC093790640FADD4C0FDA7AC530F78F12013010BE2639EE966710D84"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/consts/ClanImageName.java",
+    "bytes": 4881,
+    "sha256": "5235A6B91BFDC3399DCB250BA4EC67D01C81464EB7B51A2C7388AFEC5DF04EBA"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/consts/Cmd.java",
+    "bytes": 14391,
+    "sha256": "B8600BE45B4E31BA4D5061AB1682B459378FD7471C5121E384DB63320A841278"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/consts/CMDMenu.java",
+    "bytes": 12242,
+    "sha256": "D40ECB8A9D76CAC33FA12D6F0357AE4F94F5CCFC8357BFE655F41A284D44508D"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/consts/CMDPk.java",
+    "bytes": 241,
+    "sha256": "78C462BBF7BDB50F5E232834315E42075226E3C32AE096D4AF8DFDDE2B3D4554"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/consts/CMDTextBox.java",
+    "bytes": 1448,
+    "sha256": "038873724122D2233A106BE095E63C3D10DDE5DA4244E6BF2FCFFB0408D74B30"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/consts/ItemName.java",
+    "bytes": 65887,
+    "sha256": "503536D403BD8786935BB220838B815CE99B8E655EC5AE596A8E640248AB9AA9"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/consts/ItemTimeName.java",
+    "bytes": 5904,
+    "sha256": "0B841A8D6027692755F93DB992883624DD3B0057E7CDC31FA2DECDF3FFF249AB"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/consts/MapName.java",
+    "bytes": 7988,
+    "sha256": "761179F0E6CBF4ACACCC2319EA5379ACF6888C761BAA639423320FEA147A038B"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/consts/MobName.java",
+    "bytes": 3723,
+    "sha256": "1F2BA8946D49F757ED079CCB8F0684DEAFE717ECC02FCDC3E89B546332D7E392"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/consts/NpcName.java",
+    "bytes": 3325,
+    "sha256": "803A03C6683B78A6AAA9D37783DEC2384DE98F9FC80AC1B326C5A1E2E473846D"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/crackball/CrackBall.java",
+    "bytes": 16270,
+    "sha256": "EFC1A33680F6B8A0AC98F51477CE1D68E679D40132F980BA3CF4776A1CADF4D8"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/crackball/Reward.java",
+    "bytes": 243,
+    "sha256": "354ED57C340BF54706FF8767F6663501A8983CD48727AE2E3E085002FB2DE5D1"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/data/BoMongBossConfigData.java",
+    "bytes": 641,
+    "sha256": "18B12440F9F4941B4E515A6167AB752453A42A03AB6354F0258BB4725F22E166"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/data/BoMongConfigData.java",
+    "bytes": 574,
+    "sha256": "F14B5AF83C580607EDAB3F5BDB4E2440C528A685185F696210178A6EF6C97920"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/data/BoMongMocDiemData.java",
+    "bytes": 1000,
+    "sha256": "06A4607C01BF17871BB973C2E5F7A1A214304AB1FB9608C76DE25CBDA093CDE9"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/data/BoMongNhiemVuConfigData.java",
+    "bytes": 896,
+    "sha256": "E2803661252436693D3B100B9E0906A14039C7FBC71662BD0AAD453F3BCF05E0"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/data/BoMongNhiemVuData.java",
+    "bytes": 1012,
+    "sha256": "0D32CDDB77EA04E06095E582667B6415AD0020B0366A85FED052E70A9573F7BC"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/data/BotConfigData.java",
+    "bytes": 973,
+    "sha256": "2367B0870887E3EEF63B1EBB18EEEBBAA69F0B4549D77C3E26C4B6DB9736CEE3"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/data/CCUData.java",
+    "bytes": 595,
+    "sha256": "27FCE6D8B95F599B735CEC5F1D72DC6505E332AF56A3035FA391F552EAC37543"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/data/ClanData.java",
+    "bytes": 1763,
+    "sha256": "F7238603C92CC49C5C00D35658A55BEE31958E98584B9ABDF64D8B92CAB4D8FF"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/data/ClanMemberData.java",
+    "bytes": 1893,
+    "sha256": "13496D210FF3D62D5ED80D418DE3EF4C65D3D6B2AD0284096741E3506116819F"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/data/ConsignmentItemData.java",
+    "bytes": 1749,
+    "sha256": "33835A970DDC8696B78B28923F1D94464B438994CEA6120BAE5DFC1ADC713A73"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/data/DHVTSieuHangData.java",
+    "bytes": 752,
+    "sha256": "F43E8AD3AEDC09A56D89DD3255B72A0B2BECAD21D638BB282F283E2B91B0FBC3"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/data/DhvtSieuHangReward.java",
+    "bytes": 744,
+    "sha256": "22D7804D2C1C04DC897DA5E3C7D6DFEE2E34997027113446408D6C6E1F3769F5"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/data/DiscipleData.java",
+    "bytes": 992,
+    "sha256": "DB691838934C1A1E2B0333502DDC1916F409A83E4CC2FF7A44D7F6F7F4EAD938"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/data/DropRateData.java",
+    "bytes": 1406,
+    "sha256": "CFA9439985D6F1D4A23F9897A0BFA49814B2584FC676E5B03CA8E9F6377D29A4"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/data/EventOpen.java",
+    "bytes": 673,
+    "sha256": "95F234FFE6BA72707622A6D45B332450807B8F14D0F49E1D27BB564B7B3EBCD9"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/data/GiftCodeData.java",
+    "bytes": 1003,
+    "sha256": "9A58C25DA869BDE9C5B52A64FA5BEA841E8C1061FF090414FEF160013CF9C644"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/data/GiftHistoryData.java",
+    "bytes": 668,
+    "sha256": "AD610256C9D296C5DAFAFE43C118799FD48E9B1DCE94C76D4B104D057DCCD9C1"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/data/HistoryGoldBar.java",
+    "bytes": 885,
+    "sha256": "228EC357E84D8D20065AB5E9E0B3480004891F0F1F7AD9DD9B33A4765097141C"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/data/HistoryTradeData.java",
+    "bytes": 1109,
+    "sha256": "409D4149D9CB96094FBBB3C7E9E4D883B4CB7E0EA05D0DBD7FE97BADF40F45E3"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/data/MabuEggData.java",
+    "bytes": 629,
+    "sha256": "C0677ABE4169ED0B7D8EA3B3CD7A5F638C55897FF54D892ECD39C5263B26C769"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/data/OsinCheckInData.java",
+    "bytes": 695,
+    "sha256": "1CF961190CBAE9A0EC3271384E719A21A39A468AB1C7A96E11F1D2E5A50E55B4"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/data/OsinLixiData.java",
+    "bytes": 551,
+    "sha256": "51A78F28110D234585A9536ED51121FD6953D99B040EC3FBDE9E21CBB1C88EBC"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/data/PlayerData.java",
+    "bytes": 3943,
+    "sha256": "BD852D931A1998A15DD7C33911659876009096347D9B4A0D315C0C7935ED040E"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/data/SecurityData.java",
+    "bytes": 800,
+    "sha256": "86D431AC6624CFC9969A6FAAEEBE983915C11291F1A0AA110EFF3A70DD69EE07"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/data/StatisticServerData.java",
+    "bytes": 1523,
+    "sha256": "EC839819D62703E206E0303B41B687158FA3AF16A014DE77525D34FAD7AD1CAD"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/data/SuKienTetData.java",
+    "bytes": 1106,
+    "sha256": "D2B1B9D7CFDCD66B587E4C6D7D947A751AF4EACB8E582368D97C3F2F8C3E0E90"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/data/TopSuperRankData.java",
+    "bytes": 611,
+    "sha256": "3C09844C2C2D745184CE9910015E04CD3D6B29F54601FA0B01EB9866C49EBA95"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/data/UserData.java",
+    "bytes": 1053,
+    "sha256": "E2C969B9015D8D0BF685DE5E81B95C3AC125AA3643DCFF25D9835BEE791DA3A8"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/data/VongQuayThuongDeData.java",
+    "bytes": 743,
+    "sha256": "FF3AC1907B66608F208E0DB46DA957A430B87365C6478B201F5B5469241CE91E"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/data/WhisData.java",
+    "bytes": 656,
+    "sha256": "BE9B09A0FCAFE76A32D41F1ECDA01B5CD32B825E48A8F315EF4BDD601781B70F"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/effect/AmbientEffect.java",
+    "bytes": 781,
+    "sha256": "4BD52C4B189525503EB1201EAEC04775DA1A25390DB8FA3701C39C89B68BF33E"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/effect/Effect.java",
+    "bytes": 1946,
+    "sha256": "B8B8D5F2FEE32AA9CDB99230EDA97B9672A3773844397C7FBEA033F10E724AEB"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/effect/EffectChar.java",
+    "bytes": 578,
+    "sha256": "00CA90EA7A6B137515ECE65ABACE6F4130D3C0802AD5A4B84C88D66B7E021F5B"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/effect/EffectCharPaint.java",
+    "bytes": 132,
+    "sha256": "D78F234F0FE455C5C233005D7869CE819CEB13B1527CF4687849A1B5026B523A"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/effect/EffectData.java",
+    "bytes": 1998,
+    "sha256": "FC30ACE0A4EA4E781A5AD2076E896992CDC2460B4BE64DE3722E60678BCB25BE"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/effect/EffectInfoPaint.java",
+    "bytes": 132,
+    "sha256": "01DCF683622E8AE11EEA46C09A5CA56A3D3E4E14D7D23040137635239CAEA30C"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/effect/EffectTemplate.java",
+    "bytes": 161,
+    "sha256": "E9F459A6F0F6EE2F4DC460485228F548860E87D2C530103AE88D8E30087C41DE"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/effect/Frame.java",
+    "bytes": 133,
+    "sha256": "E5B0046EC1D738ED645660E69E2964BADAB1F746ACAB095ACE61C2DC474D612E"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/effect/ImageInfo.java",
+    "bytes": 159,
+    "sha256": "191D6CF159760DF40743A9CA5848B1621CDFAE67A98928C047F483532025DD64"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/event/Event.java",
+    "bytes": 630,
+    "sha256": "A245BF1EA80664C5355D1516FD2E320DAC1938394F0C1567F6E0FCCFF9D8FE05"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/event/OsinCheckInEvent.java",
+    "bytes": 10817,
+    "sha256": "3974F0FFF28841029E636C3BB054479851F13E3F1D27EED92FF079B1CB13E2A9"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/event/OsinTetEvent.java",
+    "bytes": 16790,
+    "sha256": "3676731EA47D3E1FB2C9040FCF05A83C09601B5074B85B3103B9B509F97E9F6C"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/item/Amulet.java",
+    "bytes": 827,
+    "sha256": "96D8889380FDC8D3D0D8AA3B8028705E7830835148E604C5BC39730761D9B3B3"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/item/Item.java",
+    "bytes": 29761,
+    "sha256": "A872F1FBAFE8ADB17ACDEF90D898F8D3EE03F43B953C0A5FC1265B53D7CACC9D"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/item/ItemMap.java",
+    "bytes": 795,
+    "sha256": "7B58A1939EBC83E76E56BCEDC615921AF4676B97E45ACBA0304236E1AE17CE7B"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/item/ItemOption.java",
+    "bytes": 1463,
+    "sha256": "CF15E0A35BDB6AECEA0AE1A2D2489CFC93D83D55B6C6ABE198EAC3939AC6D668"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/item/ItemOptionTemplate.java",
+    "bytes": 137,
+    "sha256": "2E9141E381240358CCE7E87BD12AC1507730FB3E6A42FC16F2022B5CB019C56C"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/item/ItemTemplate.java",
+    "bytes": 5999,
+    "sha256": "FEACAB5D7220D83D067E931284CA87488F2998D606AE9066FCC47751B6623E17"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/item/ItemTime.java",
+    "bytes": 410,
+    "sha256": "43DC239465AEC165258C82EBF405DFF6F37BE6886508C003D5215E97F4CFDD9C"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/lib/CaptchaGenerate.java",
+    "bytes": 2524,
+    "sha256": "A561315CF5E5E74C2C153E5264E37068FEA962C461C29E10E8F4CAC7866D9562"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/lib/KeyValue.java",
+    "bytes": 283,
+    "sha256": "4096FF69E393DD08FA8E9E2DE34F6C457F303B95576CD2BA7E9A2C1257B8AEFA"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/lib/Menu.java",
+    "bytes": 548,
+    "sha256": "459A42C27F39A097F3C50A25F8C427CA7E6A2C3DEDB0D5AB4598C761360660A9"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/lib/RandomCollection.java",
+    "bytes": 882,
+    "sha256": "F7BC91141B2B18482079270A37D238EF2A1B7D50BD0C77125559409CEE97C382"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/lucky/Gamer.java",
+    "bytes": 159,
+    "sha256": "AC531E0B1DF3A77B2C6906169450691C67B17FEC1FECB5A1C3ACDB93D5A40140"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/lucky/GemLockLucky.java",
+    "bytes": 4425,
+    "sha256": "0D5F9284F59A6BA3765477A1DB8AEFA7524351B3706CEA81111875B01202032D"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/lucky/GemLucky.java",
+    "bytes": 4385,
+    "sha256": "93266B7012F5E21F2209C42E34AEB93EEA6A5F3CD000F523777BCFB10DC060F6"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/lucky/GoldBarLucky.java",
+    "bytes": 4899,
+    "sha256": "C2709F70C84157599362F7520FC963003619E8FF47CFD19BA3A970A647CF49FF"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/lucky/GoldLucky.java",
+    "bytes": 4245,
+    "sha256": "36D58D46FD252274809F8F4448BE882C1D17FC28FB0C42848F01258F0D6A55C3"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/lucky/Lucky.java",
+    "bytes": 7860,
+    "sha256": "7231C61042FFA55F20EE491B3F35F0A5F766000957F9C77D2B01B99A31DAB668"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/Barrack.java",
+    "bytes": 6106,
+    "sha256": "50966D0F7738C4CC0F7BC26A5BE3191C5D2640C8D7BA4427ACC06384C8B7E44B"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/BaseBabidi.java",
+    "bytes": 5289,
+    "sha256": "B886EA4C64FFBC112813D1DBAB2ADA1A23C456557D113E27CE240F2C1671F487"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/Boss_Tet.java",
+    "bytes": 2045,
+    "sha256": "C3663E68C6153537413676283753559A334B2919C3EC3772AD6770DFA6000D28"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/expansion/blackdragon/MBlackDragonBall.java",
+    "bytes": 1490,
+    "sha256": "8AA3768F8C6987B87C482753F5E6F309212A2F452E095143344CC969E77C8BE2"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/expansion/blackdragon/ZBlackDragonBall.java",
+    "bytes": 9482,
+    "sha256": "7ED599B80130B1FC0F57A28EF7080546F1D40AF7D58479621F90BE7E2393CA27"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/expansion/Expansion.java",
+    "bytes": 856,
+    "sha256": "D3F31280ACE7E8B71952103803205DFF7EECC8D6439E4A4510E6ACD37DEB8A91"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/GalaxySoldier.java",
+    "bytes": 5032,
+    "sha256": "BBF6839C6265913C3720B6AD156C88C6FFC77E4268D47E2FCFA50D23B9D24B26"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/GinyuForce.java",
+    "bytes": 4276,
+    "sha256": "FB5B20016FACC7A1EE9B4792F582DD44081ED0E03DDECB6E926E5A1381C756DF"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/HaiTacManager.java",
+    "bytes": 5289,
+    "sha256": "0D789C930F09464E324D47B790EEFA4F8D0CC48E1FE499EB26B08D30DFDBB5F1"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/IMap.java",
+    "bytes": 1525,
+    "sha256": "3A58DA0CD08EBDC917BA716E7A3370E0E71FC999D462CFB524B7FFB34CA65C0D"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/MapManager.java",
+    "bytes": 7845,
+    "sha256": "7F51F683FCE696446FCBE277BF8B117FA82353766B452F789F842926E1792D0A"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/MapService.java",
+    "bytes": 20805,
+    "sha256": "6A84A5531AEB11B65EE329DB94C7B4C509B7ACB571C4029EEC2A025E0CCABE47"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/MartialArtsFestival.java",
+    "bytes": 4844,
+    "sha256": "2E9D8AB171BAE7124F7CE03E67B051D8F19B66BCA36530405C9D90ACB3455D4E"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/MartialCongress.java",
+    "bytes": 2439,
+    "sha256": "0B68220FA97C2C0EC48AA5B91C755822E342DD51165DF3B42E47A35715C4543F"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/Round.java",
+    "bytes": 4046,
+    "sha256": "9E18DF7CB78C1A4DEE543325C38410EAE459D06D2172E10089F25F3F965FE24D"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/TayDuManager.java",
+    "bytes": 5449,
+    "sha256": "609837A5EA86B8DFCC42C69664A2F99CB594DC987B8C0425A7618E46EE0F63A3"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/TeamAndroid13.java",
+    "bytes": 3799,
+    "sha256": "BB4D6F81D9C0C324BEC71B0A4D7B52C096718471AADEA5CD9D157BB9F69BEA06"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/TeamAndroid16.java",
+    "bytes": 3298,
+    "sha256": "FC0E9E5E48973F36142DD6B263C0931E4A2DD2101D59794042E0D4B3DD88226F"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/TeamAndroid19.java",
+    "bytes": 2921,
+    "sha256": "F9C5F80138A67886A3C2C6CC62DECAEBA82A04FF9C50A4A4C1F46E40F3E8CB5D"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/TMap.java",
+    "bytes": 17417,
+    "sha256": "DB5211E9B8B42DA7FE9D19586A09D4D861CE93B0453BC989F181F9E791CDBB3D"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/Treasure.java",
+    "bytes": 5102,
+    "sha256": "B2746FAF9A4193FB4E19CF36D33E0881E2EF7F00712ACC85B8E28BB64F47EAD8"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/tzone/Arena.java",
+    "bytes": 6801,
+    "sha256": "D550F4437F2A32CB7BC35C5337B279DEB77F0A5E57927458F7EC72F6EB7F850E"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/tzone/Arena23.java",
+    "bytes": 10393,
+    "sha256": "CD96F5ED447C1932901A8848DED9B27E0556A6312BBA3FEC9D9F7F349D882D3E"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/tzone/ArenaSieuHang.java",
+    "bytes": 15641,
+    "sha256": "CFEF39D6C1A1C4FA987EB4F726A3D271C55BBFA5179E2B7CF37FE0B6594888D8"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/tzone/ClanTerritory.java",
+    "bytes": 204,
+    "sha256": "20A03D147DE1FDFBF536F1D3C3135F9F357AA8430F68B86F2B62AFAA9DFDA14D"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/tzone/Cliff.java",
+    "bytes": 1720,
+    "sha256": "4B9125B77DACA9976069181E0F6619F8FF73C4F2491ECB07503314F3485794B7"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/tzone/CommandRoom.java",
+    "bytes": 2991,
+    "sha256": "5BE946693DA228FBA69560F471D588DB69AF0DA05E36477A1DF40DE952C5076E"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/tzone/GravityRoom.java",
+    "bytes": 651,
+    "sha256": "AB8971A13DD222A725ABD7B2A9B9E0F932F3262DFCEF5EE63EB5BB0959548B7F"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/tzone/Home.java",
+    "bytes": 1888,
+    "sha256": "9D1CFBC483B9C49A57A2FCE2429DE8EE971A2465083790CFEE30F2A4E61AB1F6"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/tzone/KarinForest.java",
+    "bytes": 996,
+    "sha256": "CE6B657402D874A1232007FC5C8CA452BA688C726A3633F068ACE0CDF50B9FF7"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/tzone/KarinTower.java",
+    "bytes": 560,
+    "sha256": "5B1B77B35B6F0CF112BD69D8856124BC51DDE002DEF87922D7FC64EC5901BB3A"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/tzone/MapSingle.java",
+    "bytes": 411,
+    "sha256": "6D4A44206CC0DD6165EAE836C76C93904AF5D78EB1F008FD2FF91CA169D9E6C2"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/tzone/NguHanhSon.java",
+    "bytes": 2291,
+    "sha256": "30F058067B3ED2A59DA203E59C109CC64FE2AF35686A78C263140A28F8D22714"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/tzone/OctopusCave.java",
+    "bytes": 1014,
+    "sha256": "4BB93CEDA15F6CD022F04B7D168938FB91BFE0E552DFD88015CB7A5AFBD7436C"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/tzone/PirateCave.java",
+    "bytes": 1196,
+    "sha256": "D0705E91D11C7974FEC64D238C51AA2C2E25058CAA36D29F9685CD1382064749"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/tzone/PiratePort.java",
+    "bytes": 1014,
+    "sha256": "CAFD2AD2AAF33C3E69B1284DB58E4FF59E8BEBA68DAD2E578335F7A8BE9E551E"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/tzone/SoutheastKarin.java",
+    "bytes": 431,
+    "sha256": "101060C991D0661F83D1466D633AA203BF90F1D208CDA191857AE902C37CBFAE"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/tzone/SpaceshipRoom.java",
+    "bytes": 1584,
+    "sha256": "BC13D83F51D0FDB53602D42679689B476899120A77F88639139328BB5CB8EADD"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/tzone/TreasureCave.java",
+    "bytes": 715,
+    "sha256": "F698D3415846821D855BA79DAAEE5682DD24D876310D1D50430DA50466B6F42D"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/tzone/WaitingArea.java",
+    "bytes": 403,
+    "sha256": "BFB8D063756BB69B33D4C1A1C6048DFC9CADDA06674057B7E1B429993B73A497"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/tzone/ZBarrack.java",
+    "bytes": 3143,
+    "sha256": "A13BC40612E87A8E408B54FD94C48A9C7664F3B6EA179CBEEA0A5F15917AABD8"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/tzone/Zone.java",
+    "bytes": 68652,
+    "sha256": "AFDBA6C96E7090D8A799F0162B682349B7FBDFB89A34301497BF4D2255D14215"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/map/tzone/ZTreasure.java",
+    "bytes": 3233,
+    "sha256": "BF2D4E15A7A6D2F14F1B5E4CAC007820D22CC05C33E8154C4D6A55E9EE02D4A4"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/mob/BigBoss.java",
+    "bytes": 592,
+    "sha256": "F0920F654ACDAAFACB3FB18813DFE03F8D6A605C9080BC3EB4B2EDF289A7934A"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/mob/GuardRobot.java",
+    "bytes": 7957,
+    "sha256": "A5158577BAB648926E2DC92FF5AC778693E24D0838506D5D32777C53E6DA499A"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/mob/Mob.java",
+    "bytes": 58138,
+    "sha256": "159688A52588256B79B1403F98D881554004BD91FB1D3027A71FCB61FD5D44BE"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/mob/MobCoordinate.java",
+    "bytes": 198,
+    "sha256": "EE9E917CD8D3281B8944F850D882734D6A19238B3D9B605569B5712CBF0F348E"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/mob/MobFactory.java",
+    "bytes": 732,
+    "sha256": "0B6855CE61961360D94BF25176550CDEB58D000E676EE38DED6427B87A6CD95E"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/mob/MobTemplate.java",
+    "bytes": 3622,
+    "sha256": "AEAFF151C25ED989B319E821B8259379ACB576813FAF8A758F8264D20D82EE59"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/mob/MobType.java",
+    "bytes": 120,
+    "sha256": "C2143EA06DABF6EEEE7F6CB04CA05EF12EF7B9D0BFD1C0CBEFB9C6302B88E813"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/mob/NewBoss.java",
+    "bytes": 1891,
+    "sha256": "9259E0E75B681385EA27979584F9BE0A82CB7A94C398363734FBDE78BF8D8492"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/mob/Octopus.java",
+    "bytes": 8372,
+    "sha256": "25BE7B0CE5553EEE94EAC4ADAE9E028313CD837013E07E046135B876A74F29D9"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/mob/_BigBoss/Hirudegarn.java",
+    "bytes": 11408,
+    "sha256": "9D1BC254753523738FF55A905A5144DD8C3EAEE0B85013C5C47D7BF2FD4B4FA3"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/model/Achievement.java",
+    "bytes": 1505,
+    "sha256": "1C34CF606B9E515BE2E262821E1C87E0BAD9AB474A3C082D7469484DEDD6D80F"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/model/AchievementTemplate.java",
+    "bytes": 195,
+    "sha256": "F79EE910C4D4CC961FCE64414F22E6A9B346C55A862877243E5BAC26505D909E"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/model/Arrowpaint.java",
+    "bytes": 112,
+    "sha256": "A9B6C76CD085AA16F15C2EC5E815583618D6FE435DE094001EC105785A868478"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/model/BgItem.java",
+    "bytes": 1516,
+    "sha256": "13829258962BBC8194ED34CDF0328867D270283A8E63DBE8B50DDC71D63F2AC2"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/model/Captcha.java",
+    "bytes": 1047,
+    "sha256": "99D6EE25B9BF0FF958EBF7E75EE495B2AA7B7DCC71D45F8B7B7C904289CA418C"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/model/Caption.java",
+    "bytes": 972,
+    "sha256": "353977C47036B7CF8679FADF3CEA824C2581E8E8DAF97707C2D66F3C3814F1FD"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/model/DartInfo.java",
+    "bytes": 329,
+    "sha256": "8213476A240CD8B9D9E23F3EB0ECBC09D6EB0E8C5C6018334BF768637B410968"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/model/Friend.java",
+    "bytes": 262,
+    "sha256": "A204D56D560B52FE9F849D4006BEC9B3E916F30EA13A4ED18FD7D4FF8E004F3C"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/model/GameInfo.java",
+    "bytes": 137,
+    "sha256": "71F57488A8F73D625105577727A57250883878F8134EADFA7649ECA4CA39CCF9"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/model/History.java",
+    "bytes": 3401,
+    "sha256": "45818833590B99BEB56F4FB9A62DCFA5C8CADA04E16D2BFCA58DF0C907CB087A"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/model/Hold.java",
+    "bytes": 2385,
+    "sha256": "5D937EC73033CCCBE5944D1B600E6EE9F76DA403DA378035383A3D1BC04FFA69"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/model/ImgByName.java",
+    "bytes": 878,
+    "sha256": "916CECE9B973BE5A7F53308DE65C13F6EB9A4696DC3215A20E8FCD3241F77DB3"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/model/InputDialog.java",
+    "bytes": 2270,
+    "sha256": "4EA6EEFB12B99123E494D415E66AD66BC1B9F32FB9E4E99FFD76FA29F20774DB"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/model/Invite.java",
+    "bytes": 1711,
+    "sha256": "884A01C5060582ADC4078F3BB34239773AE919C927E046456432D67790012F7F"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/model/MabuEgg.java",
+    "bytes": 5099,
+    "sha256": "5AA60C3E7F70325D4F1502C7E305CCD64C8312DAAC74E034E03594D2C6CB2258"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/model/MagicTree.java",
+    "bytes": 9202,
+    "sha256": "DE44962FA342F912C8BD3236F0468CA7F2260FC18B0DD0B3125A8E7C4267DF14"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/model/MessageTime.java",
+    "bytes": 512,
+    "sha256": "6E6A38E555D9C8E6C46693CEF99FED6E8D407F62E69EEADCD2B67291A6F71E13"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/model/NClass.java",
+    "bytes": 257,
+    "sha256": "F6935A4BCAF8238E2E8ACC62D59D3C07E63FBF11C4FCC4D6261C2C9059373A26"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/model/Notification.java",
+    "bytes": 364,
+    "sha256": "B593F1DA1711089DBE16755356A52DAECD951B54E604D93CD7D391B800E0B3DF"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/model/Npc.java",
+    "bytes": 2288,
+    "sha256": "BED3A63E3D55BE054A45EF50FC400CBD0DA794B2DFCA7FCFDBC49FC2B738F51E"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/model/NpcTemplate.java",
+    "bytes": 220,
+    "sha256": "CF2BEB78E79286962A149B038C3EFEC825C8D7E4F6A328CDC917ED50A349447F"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/model/Part.java",
+    "bytes": 488,
+    "sha256": "1FF616202025DF961ECBA58EA331CC3CBE22EE22B78AB9B7914809869898F754"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/model/PartImage.java",
+    "bytes": 126,
+    "sha256": "65A8D7FB40C6139BDC4384DAED068F405597A68B6E931557E38FE3E764041EF2"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/model/PetFollow.java",
+    "bytes": 216,
+    "sha256": "B31856AF71361DBD357F53BE1A553FC4847DC6D9E499791BD2B1353EF19F4E1A"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/model/PlayerService.java",
+    "bytes": 5807,
+    "sha256": "7AB7BBFF705445B343B0C74C687F8060F976BBD13FC1B01DDA51F46845B3E406"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/model/PowerInfo.java",
+    "bytes": 608,
+    "sha256": "9D3B5560E2C65A2A76B08528CCB9F99C1A3046EC26BF95A5F87AB7780EDA0FA2"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/model/PowerLimitMark.java",
+    "bytes": 298,
+    "sha256": "E00B47FC06732D464FC27E01515E64FB62ECFDDB9C6EC73EE7D71A8D61A8EE57"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/model/RandomItem.java",
+    "bytes": 15128,
+    "sha256": "F05472DDB04E98380DEB2E0B6EF163CC6EEBBD35A9574D1E16D89A62BA7083C3"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/model/Report.java",
+    "bytes": 423,
+    "sha256": "CF67C714721C0B1ED38D93C81462CE06DA989EAF7769EE25B8FE760DD059B2CB"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/model/Status.java",
+    "bytes": 113,
+    "sha256": "F6ABB8029F98E40F736F4A0329340F302F3DD3DC1D2374AB43C8BD7F3BB60332"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/model/TextField.java",
+    "bytes": 557,
+    "sha256": "1CEE5A9CF35CDB5D9DD05B557952376412A45FB6992A19632EE6BDBD81474F02"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/model/VoiceMessage.java",
+    "bytes": 4825,
+    "sha256": "3C978BC1B4FED978F0F9C9570532CF53244EBE58F3CA3F423246ADD5015BE125"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/model/VoiceMessageType.java",
+    "bytes": 663,
+    "sha256": "4FF6889A7C05D5EAE32BD5069BE80B20ACE9AE84BC3D78D1D7AF886C94A323A2"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/model/Waypoint.java",
+    "bytes": 660,
+    "sha256": "92A850F12F8A9FDFAB638A6A2C97DBD077A92DE5F0C0F29D317D0CD6E62FD090"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/network/FastDataInputStream.java",
+    "bytes": 13220,
+    "sha256": "8D645300888D57F894411D84C466A7340F51BDF05645896B44527F526B7F125B"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/network/FastDataOutputStream.java",
+    "bytes": 9949,
+    "sha256": "0E7DB88A584AD0F3908E706DEB379C1B78D61F2DCEBA1711C146B5BCF442ACC4"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/network/IMessageHandler.java",
+    "bytes": 386,
+    "sha256": "E46359BFBC6EEE4D659CEB100EC8E55144EB33D3191F28F509E8B2C8D20176ED"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/network/IService.java",
+    "bytes": 234,
+    "sha256": "82C12A7B0DB7245708CF9CEE53D4C45ED300EF3461F644A46394F81988F0B97E"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/network/ISession.java",
+    "bytes": 380,
+    "sha256": "DEDC1B13E22CF081A55EE2D6ABD1FC200DA317F00903EDC21EED98C7678ABD7C"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/network/Message.java",
+    "bytes": 1758,
+    "sha256": "DBC02FCB357654F7E04C2917C1C48D1DCF4E7A267FE5ECE32290A4CBB1865C07"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/network/MessageHandler.java",
+    "bytes": 32684,
+    "sha256": "C00CE1D1D78DDAFF039ED4CA2676F9396D51E02BAFCA860B5CEC218AE3166B41"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/network/ResourceCache.java",
+    "bytes": 2528,
+    "sha256": "C6A9786D28712C0260F97B728804D52D48447F6EFF5E3660F9877CF0F2E8D7D5"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/network/Service.java",
+    "bytes": 128687,
+    "sha256": "1B1D58E5612A2595968AA9507D792A1EAF39D4E12AE64A4C10CDBBABB9F3941F"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/network/Session.java",
+    "bytes": 63769,
+    "sha256": "5E55E386C518DAC0E9F8D0DA4521A58EB66C82441F6853191449B48408EB3B7F"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/network/VoiceMessageService.java",
+    "bytes": 14586,
+    "sha256": "9540857E539319F7FA38D01D8C4D0CD39E764E3EA396BF0A02C3A2C8DA701FB6"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/network/VoiceMessageService_Case92.java",
+    "bytes": 14022,
+    "sha256": "241F89CC81DD39763475EF7C155DB97865F8C0F836C34082C960FDF46DB01C30"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/NQMP/CMS/ItemCMS.java",
+    "bytes": 2736,
+    "sha256": "4FC257E06C5898A817213FE6BDB54D9D3D6FC33F1E93A66E9F93CC3A2C4D24FB"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/NQMP/CMS/ItemCMS_Service.java",
+    "bytes": 7499,
+    "sha256": "B891B34682ED2E2AFB104C8BA12DB272A4D3679BE03D12D1094CE9E28A750BC4"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/NQMP/Cumber/Cumber.java",
+    "bytes": 8913,
+    "sha256": "086AE1E232A3E561388BD371E25955BF6200C3DB602CACC3C6EAB2F5C2072935"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/NQMP/DaNangCap/EventDaNangCap.java",
+    "bytes": 3189,
+    "sha256": "8A6573254820DBDC97A51107DFF081E328EBA129A478574D061228F3831790E1"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/NQMP/DHVTSieuHang/CloneSieuHang.java",
+    "bytes": 1936,
+    "sha256": "B77CEE9A4FA5762EAAB1009089CF017A4C9959E1B30310A3A209AEE9DD931DC0"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/NQMP/DHVT_SH/DHVT_SH_Service.java",
+    "bytes": 6577,
+    "sha256": "F20B3CC2E17C2AC3873D84414CA935387376F4D98FB946ED66FA970E4818FEED"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/NQMP/DHVT_SH/RewardSuperRank.java",
+    "bytes": 4875,
+    "sha256": "3180D5CEC1DB2AE772F6F166E4B67C36313DE4C2DFD883459093ED5DD53AB100"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/NQMP/DHVT_SH/StartDHVT_SH.java",
+    "bytes": 6414,
+    "sha256": "3DB22857370968B4E11958C0C19D48970D975EC7232D3D6FFB22B07CDE74EF9C"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/NQMP/DHVT_SH/SuperRank.java",
+    "bytes": 5358,
+    "sha256": "F07AA303C81B826664A0CC531EBBD2B98CAF9C18215F360DE3B114B3828B748F"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/NQMP/DHVT_SH/Top_SieuHang.java",
+    "bytes": 7668,
+    "sha256": "FFAC4C817E842AFED54127D7BDA246409923638581D01BBDEAE99F719EF0AC8C"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/NQMP/Event/CauCa.java",
+    "bytes": 9833,
+    "sha256": "F1DC7E77D5F7ED3B4C47A569356126203072DC69919C74F039D9E378643949F9"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/NQMP/Event/LuaThanEvent.java",
+    "bytes": 11346,
+    "sha256": "830B562334D15349AEA1311F3ADDA91BA678D191841D8A88341A09504E31F96C"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/NQMP/Event/NuocMiaEvent.java",
+    "bytes": 8529,
+    "sha256": "9169648228D27B198B134334409FB2CBF088341C991DD5FB1648A8B1058F6D6C"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/NQMP/Event/QuocKhanh.java",
+    "bytes": 20528,
+    "sha256": "609BB8FAF6DB9920072C96DA0BA5A1F2EB386292C0FF91DE2E5A9F80D834F002"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/NQMP/Mabu14H/Bu_Map.java",
+    "bytes": 8062,
+    "sha256": "06B949796DE6BE805210AC5464C6F3C64C9BBF36337FE8E1AC52C983C9448B6E"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/NQMP/SummerBeach/SummerBeachEvent.java",
+    "bytes": 3437,
+    "sha256": "B0D239F7C7605ABCDA8CCA41D09B17467042C2437BC5FD3BDBB26460723348F4"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/NQMP/TamThangBa/Event1.java",
+    "bytes": 46536,
+    "sha256": "5310615F35B9C829E5614F05579E281CE470609088A2631386A1D9FC345385A1"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/NQMP/TamThangBa/newVQTD.java",
+    "bytes": 21827,
+    "sha256": "F395559536581511D68DC7A8B568AC73A9E93B0EF0E25C522D5D1330593332CE"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/NQMP/TamThangBa/NuThan.java",
+    "bytes": 3367,
+    "sha256": "FDDB97256BB543E718C5427162198C16643F66D2C3E7F4E62A783E099914A0E9"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/NQMP/TamThangBa/TachVatPham.java",
+    "bytes": 3151,
+    "sha256": "2E96C89F668A633D2D8B53BEA1553906DE47FCAC5F2C3BFC4A390026F736A3DD"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/NQMP/Tet2025/BossTet1.java",
+    "bytes": 3523,
+    "sha256": "D07E9836B143A2E56B7E97AD0EDC099E31F9002F8158E8B4AFC14305D02ED7F8"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/NQMP/Tet2025/BossTet2.java",
+    "bytes": 3244,
+    "sha256": "B4D5780E648D5E8979302D8DBB8E55455EBDF4B05DE9082F3357F45AA2B348B8"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/NQMP/Tet2025/EventTet2025.java",
+    "bytes": 9349,
+    "sha256": "3EDD767C78EE2CCB0F45D12C173B5774ADDF4E4B5CF8A418BCEE79988A2268F4"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/NQMP/Tet2025/VongQuayTet.java",
+    "bytes": 3076,
+    "sha256": "EED5268E33CD1395A1C25360E91BE1810CE2065BD1A4C81AEECF454741E955E9"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/NQMP/Whis/RewardWhis.java",
+    "bytes": 9125,
+    "sha256": "CA9CDEE241F7CBC4106120CF2A23DD911A7C55D9F6DF82B234DAF2643183359F"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/NQMP/Whis/WhisInSingleMap.java",
+    "bytes": 2628,
+    "sha256": "74740B11B8C9786F5893694E3014401105627A201A70D8244A5EABDFE3AE47DC"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/repository/BoMongBossConfigRepository.java",
+    "bytes": 660,
+    "sha256": "379796079249ECD35CDB049431967612B9A9FA167388B120CBCBF9D6DB289ADC"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/repository/BoMongConfigRepository.java",
+    "bytes": 650,
+    "sha256": "5670DDC455ECCA3519034590C63C6DCE1F31A8A442CF460EAAF696630FB16312"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/repository/BoMongMocDiemRepository.java",
+    "bytes": 766,
+    "sha256": "C177F1BC7413D0B8F75973C894994BACE5FD6163BD4AE7B93644BFBDCFB0CF98"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/repository/BoMongNhiemVuConfigRepository.java",
+    "bytes": 563,
+    "sha256": "FB096AC1A2B895E93661A0E859E25145CF5352B6B3C996B62FFC62BFBD48CC85"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/repository/BoMongNhiemVuRepository.java",
+    "bytes": 979,
+    "sha256": "13ED8761722F214FCDE93B614FD3C529B717FE9389601FD5FC3C4199E851114B"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/repository/BotConfigRepository.java",
+    "bytes": 623,
+    "sha256": "EF9E28B159AA70E97E0C1F24A21DAD3EF38C127489A325FEC3BB8ECDB6C0AC18"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/repository/CCUDataRepository.java",
+    "bytes": 281,
+    "sha256": "ED596AC95DF015E134AD9C13C1668CA2131385A2F659504A61906F7DACF4B772"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/repository/ClanDataRepository.java",
+    "bytes": 1233,
+    "sha256": "74FAED78C3A0AB397E951791A5510EE260E25B4B10D86947A402E32115A61EE3"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/repository/ClanMemberDataRepository.java",
+    "bytes": 1217,
+    "sha256": "3486762D54837A6A3B1443A7421F37AC621EA5914DE342C62CE17154FFA187ED"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/repository/ConsignmentItemDataRepository.java",
+    "bytes": 1120,
+    "sha256": "8E8989E61BA59BA37943B270984826B66B53DF538083EA4F6A52564CF128E2EC"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/repository/DHVTSieuHangRepository.java",
+    "bytes": 1475,
+    "sha256": "033BDCDCB252758AB06A1E4973678D1FF5D38E36AF1393BBC369772FB0DD8166"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/repository/DhvtSieuHangRewardRepository.java",
+    "bytes": 911,
+    "sha256": "4B3ABB0F74761BF0FA464FFF340FBA7B42D96224849695F7AEF23BC0C0554E6C"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/repository/DiscipleDataRepository.java",
+    "bytes": 442,
+    "sha256": "64B397B44A821460EC38D39B35A166BD8AC999339F061D6F6EBEBBABFA807C78"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/repository/DropRateRepository.java",
+    "bytes": 292,
+    "sha256": "C8BFA9B053C8764AAA1E2857ABC0D0D6A59A0292C9473F17F8D580B89FC4FD6D"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/repository/EventOpenRepository.java",
+    "bytes": 287,
+    "sha256": "B966BD04D35C6B4C7B6B2B6DD07C216D0DBA73A304DFB5D12D8BA78C42EDEED5"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/repository/EventVQTD.java",
+    "bytes": 1218,
+    "sha256": "4110213FF9F62F200829721705B2D53FFF14C8F20C4B8F212487A7CBDA603F73"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/repository/GameEventRepository.java",
+    "bytes": 699,
+    "sha256": "61679E8F16EE790D182A6073427F1942AAF0B6C99F6CC105BFE7BE2095137268"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/repository/GameRepository.java",
+    "bytes": 1842,
+    "sha256": "8CA5D3948800650F5C1A5EC019E388506FB53DA0A27E6239F4E368BC6FAC4E67"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/repository/GiftCodeDataRepository.java",
+    "bytes": 373,
+    "sha256": "EB276F172C9B9C625A658580710C24DB8A9A05106EE22A436750FCBC8C69B40F"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/repository/GiftCodeHistoryDataRepository.java",
+    "bytes": 428,
+    "sha256": "18C4E5503623B9B51F0A8AA8CAA397F9EA067F65958149B2C0AF6C1D89214192"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/repository/HistoryGoldBarRepository.java",
+    "bytes": 614,
+    "sha256": "72C9B8D8402456AE2FE8FFC8D1B411A85416D4E3E92E22FC5CBF610DE66F5DEB"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/repository/HistoryTradeRepository.java",
+    "bytes": 301,
+    "sha256": "D12BB381B8D3E7E0068E876D0D89951B66CF5000607018F29C6E6740C25FBADF"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/repository/MabuEggRepository.java",
+    "bytes": 542,
+    "sha256": "C00DCCA021240498B2BEFA5A04B8518C9EDAAEBA168D67776D8B67654D48B31D"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/repository/OsinCheckInRepository.java",
+    "bytes": 2372,
+    "sha256": "85DDF1721EA51CE0D07C587BE22A4A9CADC36FF217120A4F032F2CDE1F5BCB70"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/repository/OsinLixiRepository.java",
+    "bytes": 660,
+    "sha256": "E74BA40496FF36D2C75DB42299495BC23FC403D0735185E06E4464B6F98FE822"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/repository/PlayerDataRepository.java",
+    "bytes": 5010,
+    "sha256": "7884D89C1617E9D5590E2D5ABCF2286E0DA11FC8C6372CE48AEB833A3B11C7E0"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/repository/SecurityRepository.java",
+    "bytes": 292,
+    "sha256": "10F4D9C9BD57F2A87844A9F3A0F0CE45F3A930E717FB77DE6B1B489A10FDAE36"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/repository/StatisticServerRepository.java",
+    "bytes": 1497,
+    "sha256": "C6DE2FF903CF443A4128DC2D4CAC2B721CBAC6CF88FBAED29FFE835D815742BF"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/repository/SuKienTetRepository.java",
+    "bytes": 886,
+    "sha256": "4AED2699D57BED0F2BAB5E842A35D767B888876E74FBD3B501B18E0F7098E638"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/repository/TopSuperRankRepository.java",
+    "bytes": 872,
+    "sha256": "6D3CE421D83F1F6F951C9962FCA8AE8CD9ECA26A01C6824A12A697BB56DE0924"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/repository/UserDataRepository.java",
+    "bytes": 2017,
+    "sha256": "44C67620403CA0839781803BEEED83DA4D17FC06702AA57E281D7A72AE86BAC0"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/repository/WhisDataRepository.java",
+    "bytes": 1124,
+    "sha256": "74DC4F8FF94519EE588060858EA08C937AAEE25CDBE0938FBEC6F5E65D585FE4"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/Run.java",
+    "bytes": 5090,
+    "sha256": "55A9C48E7DD0FF86731F5397680BCC87E6522AEF3F3B9E7A1DEA21CA8E66ECEB"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/security/BigIntIO.java",
+    "bytes": 907,
+    "sha256": "39728D5DB2C38DDB30FB18EAA512AE20D96586C56F0D00F1F695DD0B84A2AE03"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/security/ECCAuth.java",
+    "bytes": 3423,
+    "sha256": "9648E9F6D4936FDF8DB21AFCCEF0A2F67EB9A824C8B113DCF3429331E3AA92AE"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/security/MatrixChallenge.java",
+    "bytes": 10458,
+    "sha256": "626489A08715B49E81CA6F22AF8CBAD8E2601178D9C566EA5165B227090EA61C"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/security/MatrixChallengeManager.java",
+    "bytes": 9333,
+    "sha256": "8574533C7082E237A8B7BF88A492CD090D3ADDF1993B6B8532C021A1735720C3"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/security/MatrixChallengeMobile.java",
+    "bytes": 11886,
+    "sha256": "811418960548B4E33DF845C3E9D0BD37FFF87E548A7FC315F69459373B353B81"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/security/MatrixChallengePC.java",
+    "bytes": 12261,
+    "sha256": "760D4225EEBAFB46D3D8805BDA27EE6CF4D594DB44934E81016C7DEDA0E0B9D2"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/security/multilayer/ChallengeResponse.java",
+    "bytes": 1140,
+    "sha256": "C643868642FAC78B62972D20FD08018A0AB42C077083FBE8F182E256D3C2AE09"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/security/multilayer/challenges/CommitmentChallenge.java",
+    "bytes": 761,
+    "sha256": "E1BC49704A6104AF6275467BE9BE781D674F48A57570A2D6099959E80831B24F"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/security/multilayer/challenges/ECCChallenge.java",
+    "bytes": 923,
+    "sha256": "0EC0F1EE8110E634BA5E6F271CB448BEAC5B2F6ADF67BF686D43B915ADF2B3F7"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/security/multilayer/challenges/ECCPoint.java",
+    "bytes": 723,
+    "sha256": "5EF51B5CED9AE422C3F4644E70F8D2F83608B72E7CB07DC0FA698AE8872B3F80"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/security/multilayer/challenges/PairingChallenge.java",
+    "bytes": 539,
+    "sha256": "2DDA7789B1179BD0622BD47A55FF090D6D3A526E6C7F912EB49CB1A4EC2855F3"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/security/multilayer/challenges/VRFChallenge.java",
+    "bytes": 641,
+    "sha256": "8C4E4CFB7F12C38E298FC0D21F3FF887B565B6453700F7B649E9FBDB66106751"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/security/multilayer/challenges/ZKChallenge.java",
+    "bytes": 789,
+    "sha256": "3B3208760B30ED84A6B30E722DC92EE7D0F6917B2209EF5923FAD3AEC94703E9"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/security/multilayer/ClientResponse.java",
+    "bytes": 1011,
+    "sha256": "E200BDF74085528B718D9A4360C5029C8AA2F7E730B8D2E5ABBEB938DAA22B8C"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/security/multilayer/data/ChallengeData.java",
+    "bytes": 1140,
+    "sha256": "A3AE0B00794F7DC4EB93CFB03CB15E0C4CD34C672A4AB09EEDF6EFD68AB90588"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/security/multilayer/MultiLayerCryptoSystem.java",
+    "bytes": 18225,
+    "sha256": "D07A5C3A778A083BE388A40E785E474EA336848D909C2AA8F7ACF946C516FE4F"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/security/multilayer/MultiLayerLogger.java",
+    "bytes": 1069,
+    "sha256": "8155C66173FC693C8B10D5A9DB31E0C3BB21D0CE033B76D0B9F71DAE7FBA4A34"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/security/multilayer/MultiLayerMessageHandler.java",
+    "bytes": 12706,
+    "sha256": "C0C8FA5C9B08758DB02BB4C8B8AD34524424B83AC36BD7952E40AAFD1A73E1C2"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/security/multilayer/responses/CommitmentResponse.java",
+    "bytes": 331,
+    "sha256": "0E20D443772FB5561887EF41AA2366EFAB3BCCED48F7FD812308F99065A5D01C"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/security/multilayer/responses/ECCResponse.java",
+    "bytes": 351,
+    "sha256": "0DD97539587BE5505352F2975ED761A2B253371F82FCC1108A9B26218826AE92"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/security/multilayer/responses/PairingResponse.java",
+    "bytes": 354,
+    "sha256": "B7C10FA670C938B905655FC2E08D989200A2323EDCC699DAEECC8EB3367231E2"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/security/multilayer/responses/VRFResponse.java",
+    "bytes": 292,
+    "sha256": "17EC5A062661E0B640A68491AF146F2C3F875C87D6221EAABDC782B849C7E299"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/security/multilayer/responses/ZKResponse.java",
+    "bytes": 422,
+    "sha256": "F8250270308097A5917DD80770F36C474496DE864C6FFB17C06F10560608C3D5"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/security/multilayer/VerificationResult.java",
+    "bytes": 447,
+    "sha256": "5067B3C22A71C5EA0278AB175D4C6353679A51902F1A4370CC22C8C1CF4B22FF"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/security/SimpleECC.java",
+    "bytes": 5086,
+    "sha256": "502F9C2505DA003CD71E092E694ADD3A5228F35F3DEED78CB3D079ED313EE93E"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/server/AutoBackup.java",
+    "bytes": 3982,
+    "sha256": "AD1D62803447A9FE16E468B474A8DE591A8EFB6CFFBF0AF99E62F02B25A4FF03"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/server/AutoSaveData.java",
+    "bytes": 642,
+    "sha256": "26A4E388CA32CD9749F19C51BD7C6DA717A0EF2E26E5CF01FBFE8A0F9C76D5DB"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/server/Config.java",
+    "bytes": 3505,
+    "sha256": "8DA9ACFC81D9EBBC22B1EF4BA18EC9F8A9B1DB2BA91689593A4502B4610980B8"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/server/DragonBall.java",
+    "bytes": 907,
+    "sha256": "65B06D49CE202114454D696B3662D4B84D9313CABEAEEFAD00457C87F6470864"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/server/DropRateService.java",
+    "bytes": 7977,
+    "sha256": "6FA30FE542CA9367949CFF8291D75E0208A5F519FE6238A525C2B902EC8105D2"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/server/ExecuteCommand.java",
+    "bytes": 1441,
+    "sha256": "E08CCE986787B123ED864199A2AE1B05289F0652A7D39A9899FD54259AF94388"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/server/HeapAnalyzer.java",
+    "bytes": 1702,
+    "sha256": "E465A4240572CF8DA8EFFFCC1827BA2A431AEE47E9E68E1628C813412D709C49"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/server/HeapDumpHelper.java",
+    "bytes": 1636,
+    "sha256": "D0D14211D5A37250BD52973A02433D6F536F67EDDADE2A5B4229F933D791D794"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/server/Language.java",
+    "bytes": 1772,
+    "sha256": "9B39C19A7AB572EDA14876AA17BAA635D7CE95EB3A9253489F0A808FD57836F8"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/server/mysql/MySQLConnect.java",
+    "bytes": 1667,
+    "sha256": "05B8C9BA1932E038A406BCD62F050DFBEFF795E692A85EA99A972B8AF870481F"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/server/Server.java",
+    "bytes": 93155,
+    "sha256": "563F4D0A385FF736A1C64ACE692D27D3E8DBF484EE307F34E8D84D9EE9F7491C"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/server/ServerMaintenance.java",
+    "bytes": 3324,
+    "sha256": "037F247194FDD91CB4B5EAB47D4D6AB0D7645F16FE74F1ED20D58A3FBBF87860"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/server/SessionManager.java",
+    "bytes": 9550,
+    "sha256": "37E10CEF6B3F9FC390F343EED94DA3C5AE324FF5F91AB2F2641E6E4207ED75EB"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/server/SQLStatement.java",
+    "bytes": 3143,
+    "sha256": "05B2308AC3C1E2CE933ACC134C815DF12E3D44CF3B1D44D78E018EE67533278D"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/server/voice/VoiceServer.java",
+    "bytes": 1115,
+    "sha256": "96774E15C4F12A8274CB3054D61D873F0D408C7E55B9DC510FC6D0FC2081E85B"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/server/voice/VoiceSession.java",
+    "bytes": 8585,
+    "sha256": "305D87A98645AF1FC7C56A5567BF56AEA9C44FDEE5B359DB597111BDE810E1B2"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/server/voice/VoiceSessionManager.java",
+    "bytes": 1199,
+    "sha256": "4BA77FE2B2913C079D0C46DE42A886870236F97C8B61515F3DAB12FFF9C526EF"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/shop/Consignment.java",
+    "bytes": 15083,
+    "sha256": "32279F726FA51405F459B483945865AC18952D0A09D0EFE7F0DF0A9A64FE8284"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/shop/ConsignmentItem.java",
+    "bytes": 2190,
+    "sha256": "C279A202FB4371469C37ED3E40C8A713C9EFAF7BAAE661961FE4A64120AD0A49"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/shop/ConsignmentItemStatus.java",
+    "bytes": 139,
+    "sha256": "25AA0776320E2C24855833F6FA61618D696F7DC7111CB17461688C710BA7233D"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/shop/Shop.java",
+    "bytes": 6149,
+    "sha256": "C11D213CEE556DA614075876BA1909620E55470EB7A7376F4C22B95907E3EE2B"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/shop/Tab.java",
+    "bytes": 2689,
+    "sha256": "93AEC59A24753075B24A463C90CCED5450A62607A947AF8AE8F4A420DA26F1A3"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/skill/Skill.java",
+    "bytes": 1447,
+    "sha256": "97085D4B8FAFF919F60D04286112639A6A3B98821D7141831B7BD1162E463C0D"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/skill/SkillBook.java",
+    "bytes": 280,
+    "sha256": "4F4BE22F33134DA38D49CFEFA04E440BD5B5492C1D6BDAE61D6A598CBC634DBA"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/skill/SkillInfoPaint.java",
+    "bytes": 365,
+    "sha256": "257DAD44DE2B1A49768307B0A940042A5A63332DF6F7DDA8A5E3A0FF63DFE323"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/skill/SkillName.java",
+    "bytes": 1197,
+    "sha256": "24D374BE0BA892A5E8063805F90E18CF05383AA48B08B17722D0091E932F439E"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/skill/SkillOption.java",
+    "bytes": 168,
+    "sha256": "4D4DB04A25A8D9EE1724A88B778B779145A60578050F20E3295B6A58C952D080"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/skill/SkillOptionTemplate.java",
+    "bytes": 117,
+    "sha256": "17EB0B3B848AC21C3EE1730EC364E10BEAFE08C23B18EEF9ECB9F9C9A329CE22"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/skill/SkillPaint.java",
+    "bytes": 222,
+    "sha256": "AC8360DDFC134A7D182E79DB0FAF97A08DF893633F6F99EA0FF0FD3BD963FF86"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/skill/SkillPet.java",
+    "bytes": 422,
+    "sha256": "280EBC97D4670DE0BC326F96C91B18097D41616F1A8B51BE0DDA2C9BE578E67C"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/skill/Skills.java",
+    "bytes": 15297,
+    "sha256": "BCFF9753FA93D13DF84BABCE562C44F26FA7262E668C2CCB796C8315711AB2AF"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/skill/SkillTemplate.java",
+    "bytes": 599,
+    "sha256": "5109142A34FD63F24748E7D67716EEF6F31F8D17F610307D5AF1C084063D903F"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/skill/SpecialSkill.java",
+    "bytes": 1615,
+    "sha256": "21FB8CC2472CB577C0C6BECA4A943ADB5B55EF1F1AA5BFE984339C7BC7587F7D"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/skill/SpecialSkillTemplate.java",
+    "bytes": 386,
+    "sha256": "174A53E7AC6FDB4481D18BFA6E68534A2F8EF00F2CFBCB921007EFB2EA18895A"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/statistic/StatisticService.java",
+    "bytes": 5850,
+    "sha256": "632C87A2B643AC88D7DCEE34C4807F703A44AD9B23C3C5B99D3303C1296B2F5E"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/task/Task.java",
+    "bytes": 2046,
+    "sha256": "07FA8AB4FA26993F071070E9E9623953207FC2228F2B13AEFF8FE0EE549C9541"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/task/TaskTemplate.java",
+    "bytes": 760,
+    "sha256": "13A60C1136079DAD911D309C3EA0501DB121AEBD4BF71F291C4B73C20F506C36"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/task/TaskText.java",
+    "bytes": 15654,
+    "sha256": "CC9462C6B48429F48C609461DA14EDDADAA54137F6E960E90599FBBBC82F0430"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/top/AutoReward/AutoReward.java",
+    "bytes": 8943,
+    "sha256": "6048BBD21F1C75B9CFB77FB3B305E99F77EF1D136B1050D1A3964B33CEFFC7F3"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/top/AutoReward/ItemTop.java",
+    "bytes": 10686,
+    "sha256": "59F68B5FC7050C6BB2CFDDDCEBF522012D8DF74CB0E561FC102623F8309DC4FC"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/top/AutoReward/TopReward.java",
+    "bytes": 573,
+    "sha256": "AB6964C772796F75F505AE99D736880E463C40542CF4C04FE1A72D368EFD6D29"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/top/ExportTop.java",
+    "bytes": 45364,
+    "sha256": "272BF8D4A4FAF86790A1A0C0E65AF132C76ADA178464F2D141FC3AD465368DCC"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/top/RewardTopDhvtSieuHang.java",
+    "bytes": 2640,
+    "sha256": "50A2110023EF096660458E8AE0C72764D3FBA28105C631E3871B58628E42A25E"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/top/Top.java",
+    "bytes": 17587,
+    "sha256": "B2EFBA0EB0488C53068200369FB028F8533F8F99FC06C7984587E45B3C58408C"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/top/TopBanh1Trung.java",
+    "bytes": 2469,
+    "sha256": "087D443E13E64DF28B3793BD572BB95017664E698BFCAE7B4F3D6819BADCC474"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/top/TopBanh2Trung.java",
+    "bytes": 2469,
+    "sha256": "B36878EB19D192A3117C05B0F3B2519136290FE87112688FE5A7C9B5D090288D"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/top/TopBanhDacBiet.java",
+    "bytes": 2472,
+    "sha256": "3E4BA01D47124A47668900EAC9938707DB49D8925B1DC1C03C3AF5B2A8D3D62A"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/top/TopDHVTSieuHang.java",
+    "bytes": 2953,
+    "sha256": "7E3E64090E122B5C286AAD31A111F6A0FA845ACFB2B57F9A65D60E2B4469AEAD"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/top/TopDisciplePower.java",
+    "bytes": 2444,
+    "sha256": "F8723341ED35FBBC70305F3F5334681A0919669511F6F5861494CF1399751DE4"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/top/TopDisciplePowerMabu.java",
+    "bytes": 2473,
+    "sha256": "998400E1D9BCEF01E888EE839418B7ABC7C34170B3A6F2D03697403193E592F0"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/top/TopDuocBac.java",
+    "bytes": 2459,
+    "sha256": "AFBDE19686820046BF61A68E12ABD14635C2DB7A70EB112E4259E784883EA5AF"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/top/TopDuocVang.java",
+    "bytes": 2462,
+    "sha256": "A717D683F4A6D4981650F1AC89B859AEA5700048F91BA4CBBFC414BB5730A960"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/top/TopExchange.java",
+    "bytes": 2271,
+    "sha256": "126DE1EB3EF2B9DD9DEFBC01C11D08B4C88BB238F99F0D746AB34178D4328492"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/top/TopHopQuaDacBiet.java",
+    "bytes": 2478,
+    "sha256": "E954F0DCA25FFFA888C11B482903D8CB7E1EB309FA6D1FA64910A9FC3A640E9E"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/top/TopHopQuaThuong.java",
+    "bytes": 2474,
+    "sha256": "38E5AB6D582681BDEFDC2E0D22BEDBB43D68645F2A76730D50B7B14168567732"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/top/TopHopQuaThuongTet2026.java",
+    "bytes": 2274,
+    "sha256": "530FBDCAAED511E3A6C94D38A8B45ACDBDDE5AB2E07C337F04325CB88D3A2AAB"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/top/TopHopQuaVip.java",
+    "bytes": 2465,
+    "sha256": "5969A63D37833F379069BAD477214F72C5038C90EE4D73F395C3BC68D93E33D2"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/top/TopInfo.java",
+    "bytes": 305,
+    "sha256": "2FB31833F8B8AEFBDD49699A37109B3C0506EBBED62DE5E3C44BF63B9FEEA52E"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/top/TopKillBoss.java",
+    "bytes": 2457,
+    "sha256": "6D48560E5C85391F7B058AC92C19F87E530C2E67D9E42849ECDF4B55F16D9858"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/top/TopKillRaiti.java",
+    "bytes": 2461,
+    "sha256": "96476D6D182B3A7E13D2C318C7384F3CAED41D43868F32E1D03C967455BAFAC2"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/top/TopNuocMiaSizeM.java",
+    "bytes": 2474,
+    "sha256": "34B84A2C34AF54CAD782D5B2CE0940490B32817E887B3A8CA97D2BE1A74BA94E"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/top/TopNuocMiaSizeXXL.java",
+    "bytes": 2480,
+    "sha256": "2E657DD47A9C252832AC665CD91D3244B99D3E2793E14AA3E7A64DF94E148CEA"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/top/TopPower.java",
+    "bytes": 2114,
+    "sha256": "C64A9A6CA0AF83D1CF7338203B8117F0F8931A9F20BB9F7AB715B9CC327EE7C4"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/top/TopRaiti.java",
+    "bytes": 2073,
+    "sha256": "163EF9B074D9C11C0999BE1A7FA6D312DAD3B9E477D904C4CBE425E4242E7049"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/top/TopTask.java",
+    "bytes": 2922,
+    "sha256": "104954AFC4E5563218675D30C16AFD90F0A0CB1837E6BFF5C5BB3B0E0A929078"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/top/TopTieuThoiVang.java",
+    "bytes": 1992,
+    "sha256": "DE74A09020604B6576F5097A703FF2A6DA3A4E066EE5157168E0B8FA333E9E09"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/top/TopUseGoldbar.java",
+    "bytes": 2458,
+    "sha256": "761C26AFBB0AF7D49A3C7E4E4E91501CA317323475F4F9339A37572FBE63B2DA"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/top/TopVQTD.java",
+    "bytes": 2335,
+    "sha256": "6DB90E0F4F64E6A15A396EECC75C9CCB7A649F0DCE9BB96885DA2DC42B10FA41"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/top/TopWhis.java",
+    "bytes": 2212,
+    "sha256": "88826A22945617D06364211FBFF1B04190B42F47652D8CC8F3036B02C596A32D"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/top/TopWhisReward.java",
+    "bytes": 527,
+    "sha256": "E6B9F23D63D185481094EC6AA624EBCFCCEFB687B7880CB8A20776DAF6A85B35"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/user/DanhHieu.java",
+    "bytes": 3226,
+    "sha256": "F560792C3A772E067710C6AFD5500A4529D19F705A0B691A00D6FA8CE170A695"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/user/func/BaiSu.java",
+    "bytes": 3755,
+    "sha256": "BE7E6240E1A207A1C17657FB4AE61379F326B03498F70D3982E0E717E22EB98D"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/user/Info.java",
+    "bytes": 48990,
+    "sha256": "CE3D46FCF0A04649F48E695094ED92FDA9CB776B9B0A0A481BE44D6B58C608B3"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/user/Player.java",
+    "bytes": 978401,
+    "sha256": "BA0717A3A9F1A49018377BB4E467DB938C1772E1C109FD6BC5E8A0923A4C77F7"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/user/User.java",
+    "bytes": 10144,
+    "sha256": "46B264B183E4F5D2E74B1B304ADA2FFC2CA4B1589E23A9A237F6615E0BA137EE"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/util/Collor.java",
+    "bytes": 678,
+    "sha256": "0E1A6D5524DBD5CC45CB48D3B4FE80161E9B37ADAEE1CE86D48E3CB8377A35DF"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/util/CSMM.java",
+    "bytes": 452,
+    "sha256": "DE3DD4C02A788F33314AF317234CAA493A8279906D367F9646FEA2581BF2482A"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/util/Utils.java",
+    "bytes": 21947,
+    "sha256": "C4E3CB056987EEF003B87E14771708B24755683E62346563C0851703CFAFBC34"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/voicechat/StoredMessage.java",
+    "bytes": 474,
+    "sha256": "42650330D7384F7E6C3C06A86B79553E603B5A5A5F0657EF9D55F8D49876E740"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/voicechat/VoiceChatManager.java",
+    "bytes": 6794,
+    "sha256": "1AB8C30A338B88A6D392E190481645AA7769287B518D1C8B04D2112E7BA8005B"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/voicechat/VoiceGlobalChatService.java",
+    "bytes": 2577,
+    "sha256": "982F49A99465950069707DEE36DA7F4438A96B715FB16E2CC911B1B538CA109D"
+  },
+  {
+    "path": "src/main/java/com/ngocrong/voicechat/VoiceSetting.java",
+    "bytes": 1026,
+    "sha256": "D0B883B2D92B9461A5935A4ABF369EAF46B8B65B143BA8EC20E5FD834B3023EB"
+  },
+  {
+    "path": "src/main/java/_event/newyear_2026/EventNewYear2026.java",
+    "bytes": 12247,
+    "sha256": "D6B81695C43536CC8D1C4E88FF237FC3B75D46A657BB09E0E027FE8304195CAF"
+  },
+  {
+    "path": "src/main/java/_event/newyear_2026/NewYear2026RankData.java",
+    "bytes": 2985,
+    "sha256": "F0C1E8B2E7F50AAFF8D22391B56B0ACF9820A8195E838169185C7C9C6B73C1F1"
+  },
+  {
+    "path": "src/main/java/_event/newyear_2026/TopNewYear2026.java",
+    "bytes": 4342,
+    "sha256": "041EAD4F7D37FFD1CFE323C3481A7002159E7730804EC488D9803D0F886F180F"
+  },
+  {
+    "path": "src/main/java/_HunrProvision/AdminHandle.java",
+    "bytes": 6208,
+    "sha256": "4AD5B0376B276D53C199F0007FE8979D0597CA0D6F7A13EE74FE6D398E403EA7"
+  },
+  {
+    "path": "src/main/java/_HunrProvision/boss/Boss.java",
+    "bytes": 23750,
+    "sha256": "A95F162CC0EFAA8C2D7110906C0345BAE912CE682CD3663E96AB1E2C611DFEB6"
+  },
+  {
+    "path": "src/main/java/_HunrProvision/boss/BossManager.java",
+    "bytes": 15630,
+    "sha256": "DE20FD934365BD8BDC3C92B5499C2E37426FD768C1B1DA87A5A19A6EF9069980"
+  },
+  {
+    "path": "src/main/java/_HunrProvision/BotMenuHandler.java",
+    "bytes": 30119,
+    "sha256": "2D2B4FD40264B62DAD7AC15C132EB03E311D5780B33EB07E0AA48582AE68622C"
+  },
+  {
+    "path": "src/main/java/_HunrProvision/ConfigStudio.java",
+    "bytes": 1921,
+    "sha256": "49F028C09875319FE0D7BF641819B7ACBD6F0D4542F3CFEDC054E479F49D7870"
+  },
+  {
+    "path": "src/main/java/_HunrProvision/daihoivothuat/DaiHoiVoThuat_23.java",
+    "bytes": 10057,
+    "sha256": "D9C7B5C18A275A3D242E2EC9849C7560D2AFCC5F50377D3E9B5E95FA7864E94E"
+  },
+  {
+    "path": "src/main/java/_HunrProvision/HoangAnhDz.java",
+    "bytes": 17609,
+    "sha256": "0D63BE8B584850A76C52A75F48B43B7355617AC5F3B72AE5FDAF727B7532AE4C"
+  },
+  {
+    "path": "src/main/java/_HunrProvision/MainConfig.java",
+    "bytes": 4315,
+    "sha256": "0E8B418A20AC0206E9E46A74EB31D0D226A0FA921A8D607D8ADFE60F39DA1538"
+  },
+  {
+    "path": "src/main/java/_HunrProvision/MainUpdate.java",
+    "bytes": 19514,
+    "sha256": "B2B9FB6BDB558F23E49615C7670FB7E3D7FDECBBE565469E7FA7A53C419FEEEC"
+  },
+  {
+    "path": "src/main/java/_HunrProvision/minigame/ConSoMayMan.java",
+    "bytes": 12336,
+    "sha256": "EA8749A6483D475E9781F1D86064BE8BD254ED27DA5B56466825FCC0DA410EC5"
+  },
+  {
+    "path": "src/main/java/_HunrProvision/minigame/KeoBuaBao.java",
+    "bytes": 6652,
+    "sha256": "BCB571C11A2D95C1C32BF64D93AA957B9070BEABB599D66FD26FA063B780ECA0"
+  },
+  {
+    "path": "src/main/java/_HunrProvision/services/BoMongService.java",
+    "bytes": 13647,
+    "sha256": "8031F48E0132D55C07C1E1DC9B37FEB426A00BC4F03E94E7991468EE03C36365"
+  },
+  {
+    "path": "src/main/java/_HunrProvision/services/DaiHoiVoThuat_23Service.java",
+    "bytes": 2009,
+    "sha256": "66309E158E8A866E32CED36C504647F2988734ACB34533CE764BCC4D1BAA8C08"
+  }
+]

@@ -1,0 +1,48 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": { "major": 3, "minor": 21, "patch": 0 },
+  "configurePresets": [
+    {
+      "name": "ninja-debug",
+      "displayName": "GameServer Debug (x64 developer shell, vcpkg)",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/out/build/${presetName}",
+      "architecture": { "value": "x64", "strategy": "external" },
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-windows-static-md",
+        "GAMESERVER_BUILD_SERVER": "ON",
+        "GAMESERVER_BUILD_LEGACY": "ON",
+        "GAMESERVER_BUILD_TESTS": "ON"
+      }
+    },
+    {
+      "name": "ninja-release",
+      "inherits": "ninja-debug",
+      "displayName": "GameServer Release (x64 developer shell, vcpkg)",
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Release" }
+    },
+    {
+      "name": "domain-debug",
+      "displayName": "Domain tests only (no ServerEngine/dependency downloads)",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/out/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "GAMESERVER_BUILD_SERVER": "OFF",
+        "GAMESERVER_BUILD_LEGACY": "OFF",
+        "GAMESERVER_BUILD_TESTS": "ON"
+      }
+    }
+  ],
+  "buildPresets": [
+    { "name": "ninja-debug", "configurePreset": "ninja-debug" },
+    { "name": "ninja-release", "configurePreset": "ninja-release" },
+    { "name": "domain-debug", "configurePreset": "domain-debug" }
+  ],
+  "testPresets": [
+    { "name": "domain-debug", "configurePreset": "domain-debug", "output": { "outputOnFailure": true } },
+    { "name": "ninja-debug", "configurePreset": "ninja-debug", "output": { "outputOnFailure": true } }
+  ]
+}

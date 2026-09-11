@@ -1,0 +1,13 @@
+{
+  "name": "gameserver",
+  "version-semver": "0.2.0",
+  "builtin-baseline": "04a9d8e5212d01ee1dd9478eadd9caade4f8b0d4",
+  "dependencies": ["boost-asio", "boost-beast", "openssl", "sqlite3", "nlohmann-json"],
+  "features": {
+    "redis": { "description": "ServerEngine Redis connector", "dependencies": ["hiredis"] },
+    "gns": {
+      "description": "ServerEngine GNS datagrams",
+      "dependencies": [{ "name": "gamenetworkingsockets", "default-features": false }]
+    }
+  }
+}

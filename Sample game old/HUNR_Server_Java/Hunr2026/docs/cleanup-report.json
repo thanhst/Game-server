@@ -1,0 +1,11 @@
+{
+  "status": "blocked_by_execution_policy",
+  "reason": "Automatic review returned blocked by policy for batch deletion and an explicit resources directory deletion.",
+  "deletedFiles": 0,
+  "pendingFiles": 9727,
+  "pendingBytes": 498281045,
+  "preservedJavaFiles": 502,
+  "sourceHashesVerified": true,
+  "gitExclusionsConfigured": true,
+  "manualCommand": "./scripts/Clean-LegacyArtifacts.ps1"
+}
