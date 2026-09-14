@@ -1,6 +1,7 @@
 #include <exception>
 #include <iostream>
 void runLegacyCodecTests();
+void runBinaryPacketCodecTests();
 void runMatrixChallengeTests();
 void runEccChallengeTests();
 void runLegacyContentTests();
@@ -13,7 +14,7 @@ void runLegacyApplicationTests();
 void runLegacyReplayTests();
 int main() {
     try {
-        runLegacyCodecTests(); runMatrixChallengeTests(); runEccChallengeTests();
+        runLegacyCodecTests(); runBinaryPacketCodecTests(); runMatrixChallengeTests(); runEccChallengeTests();
         runLegacyContentTests(); runLegacyCacheTests(); runLegacyCombatTests();
         runLegacyWorldTests(); runMapGeometryTests(); runIdentityTests();
         runLegacyApplicationTests(); runLegacyReplayTests();

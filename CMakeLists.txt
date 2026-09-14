@@ -12,6 +12,13 @@ if(GAMESERVER_BUILD_SERVER OR GAMESERVER_BUILD_LEGACY)
     # manifest in an existing build directory as well.
     set(VCPKG_MANIFEST_DIR "${CMAKE_CURRENT_SOURCE_DIR}" CACHE PATH "Dependency manifest" FORCE)
 endif()
+if(SE_WITH_REDIS)
+    list(APPEND VCPKG_MANIFEST_FEATURES redis)
+endif()
+if(SE_WITH_GNS OR (SE_WITH_GAME_TRANSPORT AND NOT DEFINED SE_WITH_GNS))
+    list(APPEND VCPKG_MANIFEST_FEATURES gns)
+endif()
+list(REMOVE_DUPLICATES VCPKG_MANIFEST_FEATURES)
 project(GameServer VERSION 0.2.0 LANGUAGES C CXX)
 include(cmake/CompilerOptions.cmake)
 
@@ -34,10 +41,10 @@ if(GAMESERVER_BUILD_LEGACY)
         set(GAMESERVER_SQLITE_TARGET SQLite::SQLite3)
     endif()
     add_library(GameLegacy STATIC
-        src/legacy/Packet.cpp src/legacy/LegacyCodec.cpp
+        src/legacy/Packet.cpp src/legacy/LegacyCodec.cpp src/net/BinaryPacketCodec.cpp
         src/legacy/MatrixChallenge.cpp src/legacy/EccChallenge.cpp
         src/legacy/LegacyContent.cpp src/legacy/LegacyCaches.cpp
-        src/legacy/CombatRules.cpp src/legacy/LegacyWorld.cpp src/legacy/MapGeometry.cpp
+        src/legacy/CombatRules.cpp src/legacy/LegacyWorld.cpp src/legacy/LegacyReplay.cpp src/legacy/MapGeometry.cpp
         src/legacy/Identity.cpp src/legacy/SqliteIdentityStore.cpp
         src/legacy/LegacyConfiguration.cpp src/legacy/LegacyApplication.cpp)
     target_link_libraries(GameLegacy PUBLIC GameDomain nlohmann_json::nlohmann_json
@@ -55,7 +62,7 @@ if(GAMESERVER_BUILD_SERVER)
     add_executable(GameServer src/main.cpp src/net/WorldConnection.cpp)
     target_link_libraries(GameServer PRIVATE GameProtocol ServerEngineDll)
     if(GAMESERVER_BUILD_LEGACY)
-        target_sources(GameServer PRIVATE src/net/StreamHost.cpp)
+        target_sources(GameServer PRIVATE src/net/TcpHost.cpp)
         target_link_libraries(GameServer PRIVATE GameLegacy)
         target_compile_definitions(GameServer PRIVATE GAMESERVER_HAS_LEGACY=1)
     endif()
@@ -85,11 +92,11 @@ if(GAMESERVER_BUILD_TESTS)
     gameserver_target_defaults(GameDomainTests)
     add_test(NAME GameDomainTests COMMAND GameDomainTests "${CMAKE_CURRENT_SOURCE_DIR}/content/demo.game")
     if(GAMESERVER_BUILD_LEGACY)
-        add_executable(GameLegacyTests tests/LegacyTestMain.cpp tests/LegacyCodecTests.cpp
+        add_executable(GameLegacyTests tests/LegacyTestMain.cpp tests/LegacyCodecTests.cpp tests/BinaryPacketCodecTests.cpp
             tests/MatrixChallengeTests.cpp tests/EccChallengeTests.cpp
             tests/LegacyContentTests.cpp tests/LegacyCacheTests.cpp
             tests/LegacyCombatTests.cpp tests/LegacyWorldTests.cpp tests/MapGeometryTests.cpp
-            tests/IdentityTests.cpp tests/LegacyApplicationTests.cpp)
+            tests/IdentityTests.cpp tests/LegacyApplicationTests.cpp tests/LegacyReplayTests.cpp)
         target_link_libraries(GameLegacyTests PRIVATE GameLegacy)
         target_compile_definitions(GameLegacyTests PRIVATE
             GAME_HUNR_CONTENT_FILE="${CMAKE_CURRENT_SOURCE_DIR}/content/hunr/content.json")

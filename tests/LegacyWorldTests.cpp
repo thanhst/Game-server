@@ -1,5 +1,6 @@
 #include "game/legacy/LegacyWorld.h"
 #include <algorithm>
+#include <limits>
 #include <stdexcept>
 
 #ifndef GAME_HUNR_CONTENT_FILE
@@ -112,5 +113,72 @@ void runLegacyWorldTests() {
         });
         worldCheck(world.useNonFocus(1,0).outcome == CombatOutcome::Applied && world.actor(1)->battle.damageFull == 107, "custom effect applied");
         world.advance(11000); worldCheck(world.actor(1)->battle.damageFull == 100, "custom effect expiry");
+    }
+    {
+        LegacyWorld world(content,0,highDraw());
+        auto owner = player(1,0,{{0,1}},0);
+        owner.skillRuntimes[0].recordUse(9000);
+        world.addActor(owner); world.advance(10000);
+        RuleProfile wrongIdentity;
+        wrongIdentity.registerRule("legacy.nonfocus", [](const AttackContext& c) {
+            AttackResult r; r.actor = c.actor; r.target = c.target; r.runtime = c.runtime;
+            r.outcome = CombatOutcome::Applied; r.actor.id = 99; r.actor.mana = 0;
+            return r;
+        });
+        world.setRuleProfile(std::move(wrongIdentity));
+        const auto rejected = world.useNonFocus(1,0);
+        worldCheck(rejected.outcome == CombatOutcome::Unsupported && rejected.reason == "rule_changed_identity" &&
+                   rejected.runtime.lastUseMs == 9000 && world.actor(1)->battle.id == 1 && world.actor(1)->battle.mana == 50000 &&
+                   world.takeEvents().empty(), "custom rule cannot corrupt identity and failed result retains cooldown");
+    }
+    {
+        LegacyWorld world(content,0,highDraw()); world.addActor(player(1,0,{{0,1}},0)); world.advance(10000);
+        RuleProfile profile;
+        profile.registerRule("legacy.nonfocus", [](const AttackContext& c) {
+            AttackResult r; r.actor = c.actor; r.target = c.target; r.runtime = c.runtime;
+            r.outcome = CombatOutcome::Applied; r.actor.mana -= 10;
+            r.effects.push_back({"bad_identity",c.actor.id,1000,0,0,-1}); return r;
+        });
+        world.setRuleProfile(std::move(profile));
+        world.registerEffectRule("bad_identity", [](BattleTarget& target, const EffectRecipe&, bool) {
+            target.id = 77; return WorldOperation{CombatOutcome::Applied,"applied"};
+        });
+        const auto result = world.useNonFocus(1,0);
+        worldCheck(result.outcome == CombatOutcome::Unsupported && world.actor(1)->battle.id == 1 &&
+                   world.actor(1)->battle.mana == 50000 && world.scheduledEffects().empty() && world.takeEvents().empty(),
+                   "effect identity failure rolls back actor costs, timers, and events");
+    }
+    {
+        LegacyWorld world(content,0,highDraw()); world.addActor(player(1,0,{{0,1}},0)); world.advance(10000);
+        RuleProfile profile;
+        profile.registerRule("legacy.nonfocus", [](const AttackContext& c) {
+            AttackResult r; r.actor = c.actor; r.target = c.target; r.runtime = c.runtime;
+            r.outcome = CombatOutcome::Applied;
+            r.effects.push_back({"throw_on_expiry",c.actor.id,1000,0,0,-1}); return r;
+        });
+        world.setRuleProfile(std::move(profile));
+        world.registerEffectRule("throw_on_expiry", [](BattleTarget& target, const EffectRecipe&, bool start) {
+            if (!start) { target.damageFull = 999; throw 7; }
+            target.damageFull = 107; return WorldOperation{CombatOutcome::Applied,"applied"};
+        });
+        worldCheck(world.useNonFocus(1,0).outcome == CombatOutcome::Applied, "throwing expiry setup");
+        world.takeEvents();
+        worldCheck(world.advance(11000).outcome == CombatOutcome::Unsupported && world.nowMs() == 10000 &&
+                   world.actor(1)->battle.damageFull == 107 && world.scheduledEffects().size() == 1 && world.takeEvents().empty(),
+                   "non-standard expiry exception rolls back timeline and all state");
+    }
+    {
+        LegacyWorld world(content,0,highDraw()); world.addActor(player(1,0,{{0,1}},0)); world.advance(10000);
+        RuleProfile profile;
+        profile.registerRule("legacy.nonfocus", [](const AttackContext& c) {
+            AttackResult r; r.actor = c.actor; r.target = c.target; r.runtime = c.runtime;
+            r.outcome = CombatOutcome::Applied; r.actor.mana = 0;
+            r.effects.push_back({"energy_protection",c.actor.id,(std::numeric_limits<std::int64_t>::max)(),1,0,-1});
+            return r;
+        });
+        world.setRuleProfile(std::move(profile));
+        worldCheck(world.useNonFocus(1,0).outcome == CombatOutcome::Unsupported && world.actor(1)->battle.mana == 50000 &&
+                   world.scheduledEffects().empty() && !world.actor(1)->battle.protectedByEnergy,
+                   "overflowing timer deadline is rejected before any skill cost or effect commits");
     }
 }

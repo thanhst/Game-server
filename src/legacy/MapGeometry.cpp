@@ -130,13 +130,13 @@ std::int64_t MapGeometry::pixelIndex(std::int32_t x, std::int32_t y) const noexc
 
 std::int32_t MapGeometry::tileAt(std::int32_t tileX, std::int32_t tileY) const noexcept {
     const auto index = static_cast<std::int64_t>(tileY) * tilesWide_ + tileX;
-    if (index < 0 || static_cast<std::uint64_t>(index) >= mapData_.size() - 2) return JavaOutOfBounds;
+    if (mapData_.size() < 2 || index < 0 || static_cast<std::uint64_t>(index) >= mapData_.size() - 2) return JavaOutOfBounds;
     return mapData_[static_cast<std::size_t>(index) + 2];
 }
 
 std::int32_t MapGeometry::tileAtPixel(std::int32_t x, std::int32_t y) const noexcept {
     const auto index = pixelIndex(x, y);
-    if (index < 0 || static_cast<std::uint64_t>(index) >= mapData_.size() - 2) return JavaOutOfBounds;
+    if (mapData_.size() < 2 || index < 0 || static_cast<std::uint64_t>(index) >= mapData_.size() - 2) return JavaOutOfBounds;
     return mapData_[static_cast<std::size_t>(index) + 2];
 }
 

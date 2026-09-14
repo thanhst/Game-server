@@ -4,6 +4,20 @@ Mục tiêu là mở rộng nội dung và cơ chế game mà không gom mọi t
 Mã Java là nguồn đối chiếu hành vi; không giữ kiểu singleton toàn cục và mỗi zone
 tự tạo thread của bản cũ.
 
+## Host và profile hiện tại
+
+Host mới gọi `application::GameModule` với một payload hoàn chỉnh từ
+`SE_PROTOCOL_TCP`. `TcpHost` không biết kỹ năng, tài khoản hay format nhân vật.
+`BinaryPacketCodec` đọc command byte và payload nhị phân; `LegacyApplication`
+giữ phiên bản, xác thực và cache. `LegacyGameplay` là điểm nối gameplay có thể
+thay thế. `IdentityStore` tách persistence; SQLite hiện dùng cho account/character
+cục bộ và giữ revision để chặn stale save.
+
+`LegacyWorld` giữ definition bất biến, actor/mob riêng, learned skills, cooldown
+và effect timeline; RNG được inject để đối chiếu/replay. Luật HUNR nằm trong
+profile legacy; game mới có thể dùng registry ID chuỗi bên dưới. Host chưa cài
+full gameplay adapter cho mọi luồng Java. Các mục bên dưới mô tả world demo.
+
 ```mermaid
 flowchart LR
     Client[Development client] --> Engine[ServerEngine C ABI]
@@ -25,7 +39,7 @@ entity theo ID ổn định. Session chỉ giữ `EntityId`, không giữ con tr
 vật. Mỗi instance world chỉ có một thread cập nhật; luồng I/O của ServerEngine
 đưa sự kiện vào hàng đợi DLL và không sửa HP, mana hoặc cooldown.
 
-World hiện là một shard trong RAM. Lặp qua entity bằng `std::map` cho thứ tự ổn
+World demo hiện là một shard trong RAM. Lặp qua entity bằng `std::map` cho thứ tự ổn
 định. Chưa có distributed shard, migration giữa process, AOI/spatial index,
 database hay cơ chế khôi phục nhân vật khi kết nối lại. Entity đã despawn không
 dùng lại ID. Server transport có RAII stop/destroy và đóng khi mất sự kiện.
@@ -92,10 +106,10 @@ số nguyên và các ngoại lệ combat Java; xem migration-status.
 ## Ranh giới của ServerEngine
 
 Host gọi `se_server_create/add_listener/start/poll_event/send/stop/destroy` qua
-public C ABI. Không đổi source submodule. DLL thêm length TCP 4 byte big endian;
-legacy HUNR sử dụng command byte + length 24 bit, Base64, XOR và nhánh resource
-đặc biệt. Một codec đặt bên trong frame hiện tại không tự làm client cũ tương
-thích; cần raw transport/bridge và fixture bytes đối chiếu riêng.
+public C ABI. Không đổi source submodule. DLL xử lý length TCP 4 byte big endian;
+payload live là command byte + dữ liệu nhị phân, không có frame Java lồng bên
+trong và không XOR/Base64. Người dùng đã chọn sửa client cho format này.
+Codec HUNR cũ chỉ dùng làm nguồn so sánh ngoại tuyến.
 
 Các test C++ đã được viết cho lifecycle, extension, parser và protocol, nhưng
 chưa compile hoặc chạy theo yêu cầu không build. Kiểm tra source không chứng minh

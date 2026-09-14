@@ -77,7 +77,7 @@ private:
     void preflight(const AttackContext&, const AttackResult&) const;
     void schedule(std::int64_t source, const AttackResult&, bool summonedTarget);
     void beginEffect(LegacyScheduledEffect&);
-    void endEffect(const LegacyScheduledEffect&);
+    void endEffect(const LegacyScheduledEffect&, bool emitEvent = true);
     BattleTarget* effectTarget(const LegacyScheduledEffect&);
     void applySummonFollowup(const AttackContext&, AttackResult&) const;
     void clearActorEffects(std::int64_t actor);

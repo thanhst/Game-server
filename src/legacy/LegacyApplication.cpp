@@ -29,12 +29,11 @@ std::shared_ptr<const ContentSnapshot> checkedContent(std::shared_ptr<const Cont
 }
 struct LegacyApplication::Session {
     explicit Session(const MatrixChallengeConfig& config,std::int64_t now) : matrix(config), openedAt(now) {}
-    LegacyCodec codec{CodecLimits{256*1024,8*1024*1024,512*1024,50}};
+    net::BinaryPacketCodec codec;
     MatrixChallenge matrix;
     EccChallenge ecc;
     std::int64_t openedAt;
-    std::optional<std::int64_t> partialSince;
-    bool clientInfo=false, closing=false, closeQueued=false, entered=false;
+    bool protocolReady=false, clientInfo=false, closing=false, closeQueued=false, entered=false;
     std::string closeReason;
     int zoom=0,device=0;
     std::string version;
@@ -50,7 +49,7 @@ LegacyApplication::LegacyApplication(LegacyApplicationConfig config,
       gameplay_(std::move(gameplay)),entropy_(entropy?std::move(entropy):Entropy(secureSeed)) {
     if (config_.host.maxConnections==0 || config_.host.maxConnections>4096 ||
         config_.maxSessionsPerDevice==0 || config_.maxSessionsPerDevice>4096 ||
-        config_.handshakeTimeoutMs<=0 || config_.partialPacketTimeoutMs<=0)
+        config_.handshakeTimeoutMs<=0)
         throw std::invalid_argument("invalid legacy application limits");
     auto shortString=[](const std::string& value) {
         if(value.size()>65535) throw std::invalid_argument("legacy configuration string exceeds wire limit");
@@ -86,9 +85,10 @@ void LegacyApplication::reserveOutgoing(std::size_t estimatedBytes) {
 void LegacyApplication::send(SessionId id,const Packet& packet) {
     const auto it=sessions_.find(id);
     if (it==sessions_.end() || it->second->closing) return;
-    if(packet.payload.size()>(maxQueuedBytes-16)/2) throw ProtocolError("application payload exceeds queue limit");
-    // Reserve the actual vector slot before encoding commits the XOR cursor.
-    reserveOutgoing(packet.payload.size()*2+16);
+    if(packet.payload.size()>=maxQueuedBytes) throw ProtocolError("application payload exceeds queue limit");
+    // BinaryPacketCodec adds exactly the command byte. The engine owns BE32
+    // TCP framing; application deliveries never include that outer prefix.
+    reserveOutgoing(packet.payload.size()+1);
     auto bytes=it->second->codec.encode(packet);
     outgoingBytes_+=bytes.size();
     outgoing_.push_back({id,std::move(bytes),false,{}});
@@ -123,17 +123,12 @@ void LegacyApplication::received(SessionId id,const std::uint8_t* bytes,std::siz
     if (it==sessions_.end() || it->second->closing) return;
     auto& session=*it->second;
     try {
-        session.codec.feed(bytes,size);
-        std::size_t decoded=0;
-        while (auto packet=session.codec.tryDecode()) {
-            if (++decoded>1024) throw ProtocolError("packet burst limit");
-            session.partialSince.reset();
-            dispatch(id,session,*packet,now);
-            if(session.closing) return;
-        }
-        if (session.codec.bufferedBytes()>0 && !session.partialSince) session.partialSince=now;
+        // SE_PROTOCOL_TCP already assembled one complete MESSAGE. A TCP read
+        // fragment must never be passed directly into this application hook.
+        const auto packet=session.codec.decode(bytes,size);
+        dispatch(id,session,packet,now);
     } catch (const ProtocolError&) {
-        close(id,"malformed/over-limit legacy packet");
+        close(id,"malformed/over-limit binary game packet");
     }
 }
 void LegacyApplication::clientInfo(SessionId id,Session& s,PacketReader& reader) {
@@ -219,14 +214,14 @@ void LegacyApplication::enter(SessionId id,Session& s,std::int64_t now) {
     deliver(result.deliveries);
 }
 void LegacyApplication::dispatch(SessionId id,Session& s,const Packet& packet,std::int64_t now) {
-    if(packet.command==getSessionIdCommand) {
-        if(s.codec.connected()) return;
-        reserveOutgoing(config_.advertisedHost.size()*2+48);
-        auto bytes=s.codec.encodeHandshake(Bytes{static_cast<std::uint8_t>(entropy_())},
-            config_.advertisedHost,config_.host.port,config_.redirect,config_.voicePort);
-        outgoingBytes_+=bytes.size(); outgoing_.push_back({id,std::move(bytes),false,{}}); return;
+    if(packet.command==net::sessionHandshakeCommand) {
+        if(!packet.payload.empty()) throw ProtocolError("version-one handshake request must have empty payload");
+        if(s.protocolReady) return;
+        send(id,net::makeServerHello(config_.advertisedHost,config_.host.port,config_.redirect,config_.voicePort));
+        s.protocolReady=true;
+        return;
     }
-    if(!s.codec.connected()) return;
+    if(!s.protocolReady) { close(id,"application handshake required"); return; }
     PacketReader reader(packet.payload);
     if(packet.command==126) { // Cmd.ANDROID_PACK -> Session.setDeviceInfo
         auto deviceInfo=reader.readUTF();
@@ -303,10 +298,8 @@ void LegacyApplication::disconnected(SessionId id,std::int64_t now) {
 void LegacyApplication::tick(std::int64_t now) {
     for(const auto& pair:sessions_) {
         const auto& s=*pair.second;
-        if(!s.codec.connected() && now>=s.openedAt && now-s.openedAt>=config_.handshakeTimeoutMs)
+        if(!s.protocolReady && now>=s.openedAt && now-s.openedAt>=config_.handshakeTimeoutMs)
             close(pair.first,"handshake timeout");
-        else if(s.partialSince && now>=*s.partialSince && now-*s.partialSince>=config_.partialPacketTimeoutMs)
-            close(pair.first,"partial packet timeout");
     }
     for(auto it=lastLogin_.begin();it!=lastLogin_.end();) {
         if(now>=it->second && now-it->second>=15000) it=lastLogin_.erase(it); else ++it;

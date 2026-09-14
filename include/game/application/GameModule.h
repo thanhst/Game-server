@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cstdint>
+#include <cstddef>
 #include <string>
 #include <vector>
 
@@ -12,8 +13,10 @@ struct Delivery {
     bool close = false;
     std::string reason; // Operator diagnostic, never a credential or packet dump.
 };
-// One serialized owner calls these methods. Modules own connection codecs,
-// identities, worlds and persistence; the engine owns sockets and byte queues.
+// One serialized owner calls these methods. Each received() call is a COMPLETE
+// engine-framed payload (the engine has removed its four-byte length prefix).
+// Modules own packet schemas, identities, worlds and persistence; the engine
+// owns TCP framing, sockets and byte queues. Delivery.bytes is one payload.
 // A new game implements this contract without depending on any HUNR type/ID.
 class GameModule {
 public:
@@ -24,10 +27,10 @@ public:
     virtual void tick(std::int64_t nowMs) = 0;
     virtual std::vector<Delivery> takeDeliveries() = 0;
 };
-struct StreamHostOptions {
+struct TcpHostOptions {
     std::string bindAddress = "127.0.0.1";
     std::uint16_t port = 14445;
     std::uint32_t maxConnections = 128;
 };
-int runStreamHost(GameModule&, const StreamHostOptions&);
+int runTcpHost(GameModule&, const TcpHostOptions&);
 } // namespace game::application

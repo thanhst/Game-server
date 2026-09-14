@@ -31,8 +31,10 @@ arithmetic for valid generated matrices. Invalid/degenerate moduli are rejected.
 
 Command 120 carries a challenge with BE int `5` followed by 25 BE ints (104
 logical bytes). Its response has 25 pairs of BE high/low ints (200 logical bytes)
-and **no size prefix**. The normal `LegacyCodec` applies Base64 and the special
-outbound 28-bit framing to the challenge. Responses use inbound BE24 framing.
+and **no size prefix**. The running C++ application sends these logical bytes
+through `BinaryPacketCodec` and ordinary ServerEngine BE32 TCP framing. The
+original Java source applies Base64/special outbound 28-bit lengths and inbound
+BE24 lengths; that older wrapper exists only in the offline `LegacyCodec`.
 
 `verifyResponse` distinguishes first acceptance, a wrong response that can be
 retried, and a duplicate after acceptance. A newly issued challenge resets the

@@ -75,6 +75,10 @@ void validateActor(const BattleActor& a) {
     if (a.position.x < -32768 || a.position.x > 32767 || a.position.y < -32768 || a.position.y > 32767)
         unsupported("position_outside_java_short_domain");
 }
+void validateClock(const AttackContext& c, bool withTarget) {
+    if (c.nowMs < 0 || (c.runtime.lastUseMs && *c.runtime.lastUseMs < 0) || c.actor.lastXChuongMs < 0 ||
+        c.actor.lastRecoveryMs < 0 || (withTarget && c.target.lastWakeUpMs < 0)) unsupported("negative_timestamp");
+}
 void validate(const AttackContext& c, bool withTarget) {
     validateActor(c.actor);
     if (withTarget) validateActor(c.target);
@@ -82,8 +86,7 @@ void validate(const AttackContext& c, bool withTarget) {
     skillName(c.skill.id);
     if (c.level.point > c.skill.maxPoint || c.nowMs < 0) unsupported("invalid_skill_or_clock_snapshot");
     c.runtime.effectiveCooldownMs(c.level);
-    if ((c.runtime.lastUseMs && *c.runtime.lastUseMs < 0) || c.actor.lastXChuongMs < 0 ||
-        c.actor.lastRecoveryMs < 0 || (withTarget && c.target.lastWakeUpMs < 0)) unsupported("negative_timestamp");
+    validateClock(c, withTarget);
     if (c.actor.dead || c.actor.hp <= 0) reject("actor_dead");
     if (c.actor.frozen || c.actor.sleeping || c.actor.held || c.actor.stone) reject("actor_controlled");
 }
@@ -232,6 +235,10 @@ template <typename Function> AttackResult evaluate(const AttackContext& c, Funct
         auto r = original(c); r.outcome = CombatOutcome::Unsupported; r.reason = "integer_overflow"; return r;
     } catch (const std::invalid_argument& error) {
         auto r = original(c); r.outcome = CombatOutcome::Unsupported; r.reason = error.what(); return r;
+    } catch (const std::exception& error) {
+        auto r = original(c); r.outcome = CombatOutcome::Unsupported; r.reason = std::string("rule_callback_failed:") + error.what(); return r;
+    } catch (...) {
+        auto r = original(c); r.outcome = CombatOutcome::Unsupported; r.reason = "rule_callback_failed"; return r;
     }
 }
 void commonAdmission(const AttackContext& c, AttackResult& r, bool player, I& cost) {
@@ -395,7 +402,7 @@ AttackResult useNonFocusSkill(const AttackContext& c) {
         // Recovery updates bypass control gates in the Java wrapper while recovery is active.
         if (c.actor.recovering) {
             validateActor(c.actor); if (c.actor.dead) reject("actor_dead");
-            if (c.nowMs < 0) unsupported("invalid_clock_snapshot");
+            validateClock(c, false);
         } else validate(c, false);
         if (c.nonFocusType == 3) { r.actor.recovering = false; event(r, "recovery_stopped", r.actor.id); return; }
         if (c.nonFocusType == 2) {
@@ -449,7 +456,18 @@ void RuleProfile::registerRule(std::string key, Rule rule) {
 AttackResult RuleProfile::evaluate(const std::string& key, const AttackContext& context) const {
     const auto it = rules_.find(key);
     if (it == rules_.end()) { auto r = original(context); r.outcome = CombatOutcome::Unsupported; r.reason = "rule_not_registered:" + key; return r; }
-    return it->second(context);
+    try {
+        auto result = it->second(context);
+        if (result.outcome == CombatOutcome::Applied) return result;
+        auto unchanged = original(context);
+        unchanged.outcome = result.outcome; unchanged.reason = std::move(result.reason);
+        return unchanged;
+    }
+    catch (const std::exception& error) {
+        auto r = original(context); r.outcome = CombatOutcome::Unsupported; r.reason = std::string("rule_callback_failed:") + error.what(); return r;
+    } catch (...) {
+        auto r = original(context); r.outcome = CombatOutcome::Unsupported; r.reason = "rule_callback_failed"; return r;
+    }
 }
 RuleProfile hunr2026Rules() {
     RuleProfile profile;

@@ -2,8 +2,8 @@
 #include "game/application/GameModule.h"
 #include "game/legacy/Identity.h"
 #include "game/legacy/LegacyCaches.h"
-#include "game/legacy/LegacyCodec.h"
 #include "game/legacy/MatrixChallenge.h"
+#include "game/net/BinaryPacketCodec.h"
 #include <array>
 #include <functional>
 #include <map>
@@ -14,7 +14,7 @@ struct ResourceVersions {
     Bytes small, background;
 };
 struct LegacyApplicationConfig {
-    application::StreamHostOptions host;
+    application::TcpHostOptions host;
     std::filesystem::path contentFile, identityFile;
     std::string advertisedHost = "127.0.0.1", listServers, website;
     std::int32_t voicePort = 14446, serverId = 1;
@@ -27,7 +27,7 @@ struct LegacyApplicationConfig {
     std::array<ResourceVersions,4> resources;
     std::vector<std::string> validDlls;
     std::uint32_t maxSessionsPerDevice = 5;
-    std::int64_t handshakeTimeoutMs = 15000, partialPacketTimeoutMs = 15000;
+    std::int64_t handshakeTimeoutMs = 15000;
     static LegacyApplicationConfig load(const std::filesystem::path&);
 };
 

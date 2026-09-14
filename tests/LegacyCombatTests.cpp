@@ -1,5 +1,6 @@
 #include "game/legacy/CombatRules.h"
 #include <memory>
+#include <limits>
 #include <stdexcept>
 #include <utility>
 
@@ -172,5 +173,30 @@ void runLegacyCombatTests() {
         combatCheck(profile.evaluate("new.rule", c).outcome == CombatOutcome::Unsupported, "unknown rules never fall back silently");
         profile.registerRule("new.rule", [](const AttackContext& context) { AttackResult r; r.actor = context.actor; r.outcome = CombatOutcome::Applied; r.reason = "custom"; return r; });
         combatCheck(profile.evaluate("new.rule", c).reason == "custom", "separate custom rule registry extension");
+    }
+    {
+        auto c = base(); c.actor.recovering = true; c.nonFocusType = 2;
+        c.nowMs = (std::numeric_limits<I>::max)();
+        c.actor.lastRecoveryMs = (std::numeric_limits<I>::min)();
+        const auto rejected = useNonFocusSkill(c);
+        combatCheck(rejected.outcome == CombatOutcome::Unsupported && rejected.reason == "negative_timestamp" &&
+                    rejected.actor.hp == c.actor.hp && rejected.events.empty(),
+                    "recovery clock validation prevents signed elapsed-time overflow");
+        c = base(); c.random = [](I, I) -> I { throw std::runtime_error("random offline"); };
+        const auto failedDraw = attackMob(c);
+        combatCheck(failedDraw.outcome == CombatOutcome::Unsupported && failedDraw.actor.mana == c.actor.mana &&
+                    failedDraw.events.empty(), "random callback failure leaves snapshots unchanged");
+        RuleProfile profile;
+        profile.registerRule("throwing", [](const AttackContext&) -> AttackResult { throw 7; });
+        const auto failedRule = profile.evaluate("throwing", c);
+        combatCheck(failedRule.outcome == CombatOutcome::Unsupported && failedRule.actor.id == c.actor.id &&
+                    failedRule.target.hp == c.target.hp, "non-standard extension exception is an atomic failure");
+        profile.registerRule("rejecting", [](const AttackContext&) {
+            AttackResult r; r.outcome = CombatOutcome::Rejected; r.actor.id = 99;
+            r.events.push_back({"must_not_escape",99,0}); return r;
+        });
+        const auto rejectedRule = profile.evaluate("rejecting", c);
+        combatCheck(rejectedRule.actor.id == c.actor.id && rejectedRule.target.hp == c.target.hp && rejectedRule.events.empty(),
+                    "rejected custom rules cannot publish tentative snapshots or events");
     }
 }

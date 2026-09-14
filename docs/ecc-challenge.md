@@ -9,8 +9,10 @@ After the first successful matrix response, the Java server sends command 121
 field prime `p`, curve coefficients `a` and `b`, generator `Gx` and `Gy`, and
 challenge `Cx` and `Cy`. Each integer uses a big-endian signed 32-bit byte count
 followed by minimal unsigned big-endian magnitude bytes. Zero uses count zero;
-there is no Java sign-padding byte. The packet then passes through normal
-`LegacyCodec` Base64, BE24 framing, and XOR.
+there is no Java sign-padding byte. The running C++ application passes these
+logical bytes through `BinaryPacketCodec` and ordinary ServerEngine BE32 TCP
+framing. The Java Base64/BE24/XOR wrapper remains only in the offline reference
+`LegacyCodec`.
 
 The scalar generation follows this game's source exactly: obtain 256 random
 bits, reduce modulo the **field prime**, then calculate `C = secret * G`. This is

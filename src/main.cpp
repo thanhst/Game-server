@@ -78,7 +78,7 @@ int applicationMain(int argc, Character* argv[]) {
             }
             game::legacy::SqliteIdentityStore identity(config.identityFile);
             game::legacy::LegacyApplication application(config,content,identity);
-            return game::application::runStreamHost(application,config.host);
+            return game::application::runTcpHost(application,config.host);
         }
         if (mode == "--replay-legacy") {
             if (argc != 4) { usage(std::cerr); return 2; }

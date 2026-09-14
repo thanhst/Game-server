@@ -1,4 +1,5 @@
 #include "game/legacy/LegacyApplication.h"
+#include "game/net/BinaryPacketCodec.h"
 #include <algorithm>
 #include <stdexcept>
 namespace {
@@ -37,9 +38,9 @@ public:
     std::vector<GameplayDelivery> tick(std::int64_t) override { return {}; }
 };
 void receive(LegacyApplication& app,SessionId id,const Packet& packet,std::int64_t now=100000) {
-    // Test entropy is zero, so live handshake key is one zero byte. A plaintext
-    // codec supplies client-direction BE24/Base64, including command120.
-    const auto bytes=LegacyCodec().encode(packet);
+    // Engine has already consumed its four-byte frame header. The application
+    // receives exactly one command byte followed by the raw logical payload.
+    const auto bytes=game::net::BinaryPacketCodec().encode(packet);
     app.received(id,bytes.data(),bytes.size(),now);
 }
 void handshakeAndInfo(LegacyApplication& app,SessionId id,std::int64_t now) {
@@ -102,9 +103,7 @@ void runLegacyApplicationTests() {
     expect(timeout.size()==1 && timeout[0].close,"silent handshake deadline");
     app.disconnected(2,115000);
     app.connected(3,100000);
-    const std::uint8_t partial=229;
-    app.received(3,&partial,1,100000);
-    app.tick(115001);
-    const auto partialTimeout=app.takeDeliveries();
-    expect(partialTimeout.size()==1 && partialTimeout[0].close,"partial header cannot keep a session alive indefinitely");
+    app.received(3,nullptr,0,100000);
+    const auto malformed=app.takeDeliveries();
+    expect(malformed.size()==1 && malformed[0].close,"complete frame without a command must close");
 }

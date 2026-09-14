@@ -14,7 +14,8 @@ struct BattleActor {
     std::int32_t criticalFull = 0, stamina = 0;
     std::map<std::int32_t, std::int32_t> options;
     std::int32_t specialId = -1, specialParam = 0, percentDamageBonus = 0;
-    std::int32_t optionKame = 0, optionLaze = 0, mapPhuHo = -1, flag = 0, satellites343 = 0;
+    std::int64_t optionKame = 0, optionLaze = 0; // Info.java accumulates these in long fields.
+    std::int32_t mapPhuHo = -1, flag = 0, satellites343 = 0;
     std::int64_t lastAttackMs = 0, lastXChuongMs = 0, lastRecoveryMs = 0, lastRecoveryStartedMs = 0;
     bool dead = false, frozen = false, sleeping = false, held = false, stone = false, blind = false;
     bool human = true, boss = false, disciple = false, discipleType2 = false;

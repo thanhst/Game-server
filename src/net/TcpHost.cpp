@@ -8,6 +8,8 @@
 #include <set>
 #include <stdexcept>
 #include <thread>
+#include <vector>
+#include <exception>
 
 namespace game::application {
 namespace {
@@ -37,8 +39,8 @@ std::int64_t wallTime() {
         std::chrono::system_clock::now().time_since_epoch()).count();
 }
 }
-int runStreamHost(GameModule& module,const StreamHostOptions& config) {
-    if(!config.port || !config.maxConnections) throw std::invalid_argument("invalid stream host options");
+int runTcpHost(GameModule& module,const TcpHostOptions& config) {
+    if(!config.port || !config.maxConnections) throw std::invalid_argument("invalid TCP host options");
     if(se_get_abi_version()!=SE_ABI_VERSION) throw std::runtime_error("ServerEngine ABI mismatch");
     Engine engine;
     se_error error{};
@@ -53,18 +55,18 @@ int runStreamHost(GameModule& module,const StreamHostOptions& config) {
     require(se_server_create(&options,&engine.handle,&error),error,"create engine");
     se_listener_options listener;
     se_listener_options_init(&listener);
-    listener.protocol=SE_PROTOCOL_TCP_STREAM;
+    listener.protocol=SE_PROTOCOL_TCP;
     listener.security=SE_SECURITY_NONE;
     listener.bind_address=config.bindAddress.c_str(); listener.port=config.port;
     std::uint64_t listenerId=0;
     require(se_server_add_listener(engine.handle,&listener,&listenerId,&error),error,
-        "add byte stream listener (requires ServerEngine with SE_PROTOCOL_TCP_STREAM)");
-    require(se_server_start(engine.handle,&error),error,"start stream host");
+        "add framed TCP listener");
+    require(se_server_start(engine.handle,&error),error,"start TCP host");
     Signals signals;
     std::set<SessionId> sessions;
     auto close=[&](SessionId id) {
-        if(sessions.erase(id)) module.disconnected(id,wallTime());
         se_server_disconnect(engine.handle,id,nullptr);
+        if(sessions.erase(id)) module.disconnected(id,wallTime());
     };
     auto flush=[&] {
         for(auto& delivery:module.takeDeliveries()) {
@@ -77,15 +79,20 @@ int runStreamHost(GameModule& module,const StreamHostOptions& config) {
                 close(delivery.session);
         }
     };
-    std::cout<<"Legacy byte-stream host on "<<config.bindAddress<<':'<<config.port
+    std::cout<<"Game TCP host on "<<config.bindAddress<<':'<<config.port
         <<". Ctrl+C stops and saves attached gameplay sessions.\n";
     using Clock=std::chrono::steady_clock;
     auto nextTick=Clock::now();
-    // TcpStream emits at most16KiB chunks; framing belongs entirely to module.
-    std::array<std::uint8_t,16384> buffer{};
+    // The engine emits whole payloads; reserve the declared message limit on
+    // the heap once, outside the per-event loop.
+    std::vector<std::uint8_t> buffer(options.max_message_bytes);
     auto shutdown=[&] {
         const auto ids=sessions;
-        for(const auto id:ids) close(id);
+        std::exception_ptr failure;
+        for(const auto id:ids) {
+            try { close(id); } catch(...) { if(!failure) failure=std::current_exception(); }
+        }
+        if(failure) std::rethrow_exception(failure);
     };
     try {
         while(!stopped.load(std::memory_order_relaxed)) {
@@ -95,8 +102,8 @@ int runStreamHost(GameModule& module,const StreamHostOptions& config) {
                 const auto status=se_server_poll_event(engine.handle,&event,buffer.data(),
                     static_cast<std::uint32_t>(buffer.size()),0,&error);
                 if(status==SE_TIMEOUT) break;
-                require(status,error,"poll stream event");
-                if(event.payload_size>buffer.size()) throw std::runtime_error("oversized stream event");
+                require(status,error,"poll TCP event");
+                if(event.payload_size>buffer.size()) throw std::runtime_error("oversized TCP event");
                 if(event.kind==SE_EVENT_OPEN) {
                     if(!sessions.insert(event.session_id).second) throw std::runtime_error("duplicate transport session");
                     module.connected(event.session_id,wallTime());
@@ -115,7 +122,13 @@ int runStreamHost(GameModule& module,const StreamHostOptions& config) {
             }
             std::this_thread::sleep_for(std::chrono::milliseconds(1));
         }
-    } catch(...) { shutdown(); throw; }
+    } catch(...) {
+        const auto failure=std::current_exception();
+        try { shutdown(); }
+        catch(const std::exception& saveError) { std::cerr<<"Shutdown: "<<saveError.what()<<'\n'; }
+        catch(...) { std::cerr<<"Shutdown callback failed\n"; }
+        std::rethrow_exception(failure);
+    }
     shutdown();
     return 0;
 }

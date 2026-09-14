@@ -1,92 +1,85 @@
 # GameServer — C++17 trên ServerEngine
 
-Đây là phần đầu của việc chuyển HUNR2026 Java sang một game server C++ có thể mở
-rộng. Đã có mã thực thi cho thế giới, nhân vật, di chuyển, chiến đấu, kỹ năng,
-hiệu ứng và host dùng ServerEngine DLL. **Chưa chuyển toàn bộ 502 file Java và
-chưa tương thích client Java cũ.** Không build hoặc chạy C++ trong lần chuyển này.
+Source C++ chuyển từng phần HUNR2026 Java thành module để có thể thay luật, nội
+dung, protocol và persistence khi làm game mới. **Theo lựa chọn hiện tại, server
+dùng TCP framing 4 byte có sẵn của ServerEngine; client cần sửa phần mạng.
+Không cần sửa ServerEngine hoặc dùng TCP_STREAM.**
 
-## Phần hiện có
+Đã có code nạp dữ liệu gốc, cache, xác thực, tạo/lưu nhân vật và runtime chiến đấu.
+**Chưa phải bản thay thế đầy đủ server Java:** host `--legacy` hiện nối module
+phiên/tài khoản/cache, chưa cài full gameplay adapter cho `Player.enter`, quest,
+trade, clan và boss. Xem [phạm vi thực tế](docs/migration-status.md).
+Chưa build hoặc chạy C++ theo yêu cầu người dùng.
 
-- `GameDomain`: định nghĩa bất biến, trạng thái từng nhân vật, simulation clock,
-  chọn mục tiêu, mana/cooldown, damage, heal, poison, stun, shield và stat modifier.
-- `GameProtocol`: chuyển lệnh thành hành động game, ràng buộc nhân vật với session,
-  trả trạng thái và sự kiện. Độc lập với DLL và socket.
-- `GameServer`: console hoặc TCP localhost qua C ABI của ServerEngine; cập nhật
-  theo nhịp 50 ms, quản lý lifetime và giới hạn hàng đợi.
-- `game::legacy`: 24 ID kỹ năng và một số công thức/thời gian được đối chiếu Java.
-  Module này giữ luật gốc để chuyển tiếp; demo chưa dùng toàn bộ luật đó.
-- `content/demo.game`: ba mẫu Earth/Namek/Saiyan, một mob, bảy kỹ năng, bảy hiệu ứng.
-  Chỉ số demo được chọn mới, không phải số cân bằng của game Java.
+## Các phần hiện có
 
-Không cần thêm subclass cho mỗi nhân vật. Nhân vật mới là một định nghĩa; kỹ năng
-mới ghép các effect ID; cơ chế hiệu ứng mới đăng ký một handler. ID dạng chuỗi và
-bộ thuộc tính động giúp mở rộng nội dung mà không phải kéo dài enum/lớp Player.
-Vẫn có giới hạn CPU, RAM, số entity và lưu lượng; không có cam kết mở rộng vô hạn.
+- `GameDomain`: ID chuỗi, thuộc tính động, kỹ năng ghép hiệu ứng; damage/heal/DoT/
+  control/modifier/shield, thời gian và trạng thái riêng từng entity.
+- `GameLegacy`: definition bất biến từ 52 bảng/9.302 dòng; 29 skill template theo
+  class với 191 cấp; luật chiến đấu số nguyên và các ngoại lệ đối chiếu Java.
+- `LegacyWorld`: actor/mob, kỹ năng đã học, cooldown, effect timeline, summon
+  và giao diện bổ sung stat/movement/rule. Có đường chạy lại bằng JSON.
+- `LegacyApplication`: hello, phiên bản, matrix/ECC, login, cache, tạo nhân vật
+  và bàn giao quyền sở hữu cho `LegacyGameplay` có thể thay thế.
+- `IdentityStore`: giao diện storage; SQLite cục bộ có password hash, uniqueness
+  và revision để tránh ghi đè snapshot cũ. Chưa nối database MySQL Java.
+- `GameModule` và `TcpHost`: xử lý game tách khỏi socket; engine tự chia gói.
+- `MapGeometry`: code đọc địa hình từ đường dẫn triển khai ngoài repo.
+  Không đưa ảnh, map binary hoặc dữ liệu người chơi vào Git.
 
 ## Đọc và mở rộng
 
-1. `content/demo.game` — nội dung game và ví dụ sửa dữ liệu.
-2. `include/game/Content.h` — định nghĩa kỹ năng, hiệu ứng, nhân vật, map.
-3. `include/game/World.h`, `src/game/World.cpp` — owner, cast flow, thời gian, effect lifecycle.
-4. `src/net/DebugProtocol.cpp` — lệnh từ session đi vào world.
-5. `src/net/WorldConnection.cpp` — vòng poll/tick nối với ServerEngine DLL.
+1. [Kiến trúc](docs/architecture.md): ownership, module và effect extension.
+2. [Protocol TCP/client](docs/client-wire-protocol.md): phần mạng client cần sửa.
+3. [Application và storage](docs/legacy-application.md): xác thực và điểm nối game.
+4. [Content](docs/legacy-content.md), [combat](docs/legacy-combat.md),
+   [runtime](docs/legacy-world.md): dữ liệu và các ranh giới đã chuyển.
+5. [Content cho game mới](docs/content-format.md): không bị khóa vào enum HUNR.
 
-Hướng dẫn chi tiết: [kiến trúc](docs/architecture.md),
-[định dạng content](docs/content-format.md), [protocol và ví dụ thao tác](docs/protocol.md),
-[luật kỹ năng Java đã đối chiếu](docs/legacy-skill-rules.md),
-[phạm vi chuyển đổi còn lại](docs/migration-status.md).
+Không cần subclass riêng cho mỗi nhân vật. Kỹ năng mới có thể ghép handler
+hiện có; cơ chế mới cần handler/system với validation và lifecycle rõ ràng.
+Vẫn có giới hạn RAM, CPU và lưu lượng; không có cam kết mở rộng vô hạn.
 
-## Bạn tự build
+## Bạn tự build và kiểm tra
 
-Mở thư mục này bằng Visual Studio hỗ trợ CMake, hoặc dùng x64 Developer PowerShell
-có CMake/Ninja/MSVC. Cần `external/ServerEngine` đã checkout, `VCPKG_ROOT` trỏ tới
-vcpkg; preset đọc manifest Boost/OpenSSL/SQLite của submodule. Không có dependency
-binary, dữ liệu tài khoản hoặc tài nguyên game được thêm vào Git.
+Cần checkout submodule, x64 Developer PowerShell với CMake/Ninja/MSVC và
+`VCPKG_ROOT`. Manifest dependency ở **root** gồm Boost/OpenSSL/SQLite/nlohmann-json.
 
 ```powershell
+git submodule update --init --recursive
 cmake --preset ninja-debug
 cmake --build --preset ninja-debug
 ctest --preset ninja-debug
 
-# Kiểm tra định nghĩa, console, hoặc server sau khi bạn đã build:
-.\out\build\ninja-debug\GameServer.exe --validate-content
-.\out\build\ninja-debug\GameServer.exe --console
-.\out\build\ninja-debug\GameServer.exe --serve content/demo.game 7777
-python .\scripts\debug_client.py --port 7777
+Copy-Item config/hunr.example.json config/hunr.local.json
+# Sửa cấu hình local trước khi dùng với client.
+.\out\build\ninja-debug\GameServer.exe --validate-legacy config/hunr.local.json
+.\out\build\ninja-debug\GameServer.exe --create-local-account config/hunr.local.json tester
+.\out\build\ninja-debug\GameServer.exe --legacy config/hunr.local.json
+.\out\build\ninja-debug\GameServer.exe --replay-legacy content/hunr/content.json content/hunr/replay.example.json
 ```
 
-Chạy từ thư mục repo. Có thể chạy từ thư mục binary vì file content được copy
-trong bước build. DLL ServerEngine được copy cạnh executable trên Windows.
-Các lệnh trên chỉ là hướng dẫn, chưa được chạy ở đây.
+Đây là hướng dẫn; agent chưa chạy các lệnh build/runtime trên. Chạy từ root repo.
+Đường dẫn content/database trong config được tính từ thư mục chứa config.
+Cache/checksum/resource trong example là giá trị mẫu, không phải cấu hình Java
+triển khai đã khôi phục. DLL được copy cạnh executable; content HUNR vẫn đọc
+từ đường dẫn cấu hình.
 
-Chỉ build test domain/content/protocol, không cần ServerEngine hoặc vcpkg:
+Demo game mới vẫn có `--console`, `--serve content/demo.game 7777` và
+`scripts/debug_client.py` dùng GAME/1, balance riêng. Preset `domain-debug`
+chỉ build test demo/skill arithmetic, không tải dependency; `ninja-debug`
+mới bao gồm test HUNR.
+
+## Source tham chiếu và Git
+
+Giữ 502 file Java dưới `Sample game old/HUNR_Server_Java/Hunr2026/src/main/java`,
+schema SQL và định nghĩa tĩnh để đối chiếu. `content/hunr/content.json` được tạo
+deterministic từ SQL nguồn, không chứa tài khoản hoặc lịch sử người chơi:
 
 ```powershell
-cmake --preset domain-debug
-cmake --build --preset domain-debug
-ctest --preset domain-debug
+python scripts/import_legacy_content.py --check
 ```
 
-## Source Java và dọn dữ liệu
-
-Source tham chiếu nằm ở `Sample game old/HUNR_Server_Java/Hunr2026/src/main/java`.
-Đã khôi phục và đối chiếu hash 502 file từ backup mới nhất có trong thư mục.
-Schema 102 bảng và 9.302 INSERT của 52 bảng định nghĩa tĩnh được giữ dưới `sql/`;
-dữ liệu tài khoản, nhân vật và lịch sử không nằm trong SQL được giữ cho Git.
-
-**Việc xóa vật lý vẫn chờ bạn chạy:** công cụ tự động chặn lệnh xóa bằng
-`blocked by policy`, kể cả khi chỉ xóa riêng `resources/`. Khoảng 498 MB cache,
-resource, log và backup vẫn còn trên đĩa và đã được `.gitignore` loại khỏi Git.
-Script đã chuẩn bị kiểm tra hash source và SQL trước/sau khi xóa:
-
-```powershell
-.\scripts\Clean-LegacyArtifacts.ps1 -WhatIf
-.\scripts\Clean-LegacyArtifacts.ps1
-.\scripts\Prepare-LegacySource.ps1 -VerifyOnly
-```
-
-Chi tiết nằm ở
-[`SOURCE_RECOVERY.md`](Sample%20game%20old/HUNR_Server_Java/Hunr2026/docs/SOURCE_RECOVERY.md).
-`pom.xml` và `application.properties` của Java vẫn chưa có; các script Java giữ
-làm tham chiếu không có nghĩa Java build/runtime đã tái tạo được. Không commit
-hoặc push trong lần làm việc này.
+Resource, cache, backup, runtime database và config local bị loại khỏi Git.
+Không khôi phục resource đã xóa. [Verification](docs/verification.md) ghi rõ
+các kiểm tra source; không coi source review là bằng chứng runtime.

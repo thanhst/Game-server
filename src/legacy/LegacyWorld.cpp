@@ -1,6 +1,7 @@
 #include "game/legacy/LegacyWorld.h"
 #include <algorithm>
 #include <limits>
+#include <set>
 #include <stdexcept>
 
 namespace game::legacy {
@@ -38,7 +39,7 @@ bool summonSkill(SkillId id) {
         id == SkillId::CHIEU_DAM_GALICK || id == SkillId::CHIEU_ANTOMIC;
 }
 void validState(const BattleTarget& state) {
-    if (state.id < 0 || state.maxHp <= 0 || state.maxMana < 0 || state.hp < 0 || state.hp > state.maxHp ||
+    if (state.id < 0 || state.maxHp <= 0 || state.maxMana < 0 || (state.hp < 0 && !state.dead) || state.hp > state.maxHp ||
         state.mana > state.maxMana || state.damageFull < 0 || state.position.x < -32768 || state.position.x > 32767 ||
         state.position.y < -32768 || state.position.y > 32767)
         throw std::invalid_argument("Invalid legacy actor/mob state");
@@ -85,7 +86,8 @@ void LegacyWorld::clearActorEffects(I id) {
         if ((it->recipe.kind == "hold" && it->source == id) ||
             (it->targetKind == BattleTargetKind::Player && it->recipe.target == id) ||
             (it->targetIsSummon && it->recipe.target == id)) {
-            if (it->started) endEffect(*it);
+            // Disconnect must still clear holds when outbound events are full.
+            if (it->started) endEffect(*it, events_.size() < EventLimit);
             it = effects_.erase(it);
         } else ++it;
     }
@@ -94,8 +96,10 @@ bool LegacyWorld::removeActor(I id) {
     if (!actors_.count(id)) return false;
     // Disconnect cleanup does not invoke a stat resolver on a departing actor.
     actors_.erase(id);
-    clearActorEffects(id);
+    // Its summon is departing too: never invoke an extension callback on a
+    // soon-to-be-erased summon while disconnecting the owner's session.
     summons_.erase(id);
+    clearActorEffects(id);
     return true;
 }
 WorldOperation LegacyWorld::selectSkill(I id, int skillId) {
@@ -122,7 +126,11 @@ AttackContext LegacyWorld::context(I id) const {
 }
 AttackResult LegacyWorld::failure(I id, CombatOutcome outcome, const std::string& reason) const {
     AttackResult r; r.outcome = outcome; r.reason = reason;
-    if (const auto* a = actor(id)) { r.actor = a->battle; r.target = a->battle; }
+    if (const auto* a = actor(id)) {
+        r.actor = a->battle; r.target = a->battle;
+        const auto runtime = a->skillRuntimes.find(a->selectedSkillId);
+        if (runtime != a->skillRuntimes.end()) r.runtime = runtime->second;
+    }
     return r;
 }
 AttackResult LegacyWorld::attackMob(I source, I target, bool summonedTarget, bool summonOwnerTargetAllowed) {
@@ -161,14 +169,35 @@ AttackResult LegacyWorld::useNonFocus(I source, int actionType) {
     } catch (const std::out_of_range&) { return failure(source, CombatOutcome::Rejected, "actor_or_selected_skill_missing"); }
     catch (const OperationFailure& e) { return failure(source, e.result.outcome, e.result.reason); }
 }
-void LegacyWorld::preflight(const AttackContext&, const AttackResult& result) const {
+void LegacyWorld::preflight(const AttackContext& context, const AttackResult& result) const {
+    if (result.actor.id != context.actor.id || result.target.id != context.target.id ||
+        result.target.kind != context.target.kind || result.target.mobMe != context.target.mobMe)
+        unsupported("rule_changed_identity");
+    auto owner = actors_.at(context.actor.id).battle;
+    static_cast<BattleActor&>(owner) = result.actor;
+    validState(owner);
+    validState(result.target);
+    result.runtime.remainingCooldownMs(context.level, nowMs_);
+    std::set<I> zoneIds;
+    for (const auto& mob : result.zoneMobs) {
+        if (mob.kind != BattleTargetKind::Mob || mob.mobMe || !mobs_.count(mob.id) || !zoneIds.insert(mob.id).second)
+            unsupported("rule_changed_zone_mob_identity");
+        validState(mob);
+    }
     if (events_.size() + result.events.size() + result.effects.size() * 4 + 8 > EventLimit)
         unsupported("event_capacity");
     if (effects_.size() + result.effects.size() > EffectLimit) unsupported("effect_capacity");
     for (const auto& recipe : result.effects) {
         if (!builtinRecipe(recipe.kind) && !effectRules_.count(recipe.kind)) unsupported("effect_recipe_not_installed:" + recipe.kind);
         if (recipe.delayMs < 0 || recipe.durationMs < 0) unsupported("negative_effect_time");
+        if (selfRecipe(recipe.kind) && recipe.target != context.actor.id) unsupported("self_effect_target_mismatch");
+        const auto kind = selfRecipe(recipe.kind) ? BattleTargetKind::Player : result.target.kind;
+        const bool present = kind == BattleTargetKind::Player ? actors_.count(recipe.target) != 0 :
+            (result.target.mobMe ? summons_.count(recipe.target) != 0 : mobs_.count(recipe.target) != 0);
+        if (!present) unsupported("effect_target_missing");
         checkedAdd(checkedAdd(nowMs_, recipe.delayMs), recipe.durationMs);
+        if (recipe.kind == "chocolate" && (recipe.magnitude < (std::numeric_limits<std::int32_t>::min)() ||
+            recipe.magnitude > (std::numeric_limits<std::int32_t>::max)())) unsupported("effect_magnitude_out_of_range");
         if (recipe.kind == "transform_after_alive_check" && !statResolver_) unsupported("transform_stat_resolver_missing");
         if (recipe.kind == "summon") {
             if (!content_->mobs().count(recipe.templateId)) unsupported("summon_template_missing");
@@ -233,6 +262,9 @@ AttackResult LegacyWorld::evaluateAndCommit(AttackContext c, const std::string& 
     } catch (const OperationFailure& e) {
         actors_ = oldActors; mobs_ = oldMobs; summons_ = oldSummons; effects_ = oldEffects; events_ = oldEvents; nextEffect_ = oldNext;
         auto r = failure(c.actor.id, e.result.outcome, e.result.reason); r.target = c.target; return r;
+    } catch (...) {
+        actors_ = oldActors; mobs_ = oldMobs; summons_ = oldSummons; effects_ = oldEffects; events_ = oldEvents; nextEffect_ = oldNext;
+        auto r = failure(c.actor.id, CombatOutcome::Unsupported, "effect_callback_failed"); r.target = c.target; return r;
     }
 }
 BattleTarget* LegacyWorld::effectTarget(const LegacyScheduledEffect& e) {
@@ -296,12 +328,15 @@ void LegacyWorld::beginEffect(LegacyScheduledEffect& e) {
         actor.battle.hp = (std::min)(actor.battle.maxHp, checkedAdd(actor.battle.hp, percentOf(actor.battle.maxHp, 50)));
         actor.battle.mana = (std::min)(actor.battle.maxMana, checkedAdd(actor.battle.mana, percentOf(actor.battle.maxMana, 50)));
     } else {
+        const auto id = target->id; const auto kind = target->kind; const auto mobMe = target->mobMe;
         const auto result = effectRules_.at(k)(*target, e.recipe, true);
         if (!result) throw OperationFailure{result};
+        if (target->id != id || target->kind != kind || target->mobMe != mobMe) unsupported("effect_rule_changed_identity");
+        validState(*target);
     }
     events_.push_back({"effect_started:" + k, e.recipe.target, e.recipe.magnitude});
 }
-void LegacyWorld::endEffect(const LegacyScheduledEffect& e) {
+void LegacyWorld::endEffect(const LegacyScheduledEffect& e, bool emitEvent) {
     auto* target = effectTarget(e);
     const auto& k = e.recipe.kind;
     if (k == "summon") summons_.erase(e.source);
@@ -318,12 +353,15 @@ void LegacyWorld::endEffect(const LegacyScheduledEffect& e) {
             if (actor.battle.id != e.source || actor.battle.kind != BattleTargetKind::Player) unsupported("stat_resolver_changed_identity");
             validState(actor.battle);
         } else if (!builtinRecipe(k)) {
+            const auto id = target->id; const auto kind = target->kind; const auto mobMe = target->mobMe;
             const auto result = effectRules_.at(k)(*target, e.recipe, false);
             if (!result) throw OperationFailure{result};
+            if (target->id != id || target->kind != kind || target->mobMe != mobMe) unsupported("effect_rule_changed_identity");
+            validState(*target);
         }
     }
     if (k == "hold") { const auto owner = actors_.find(e.source); if (owner != actors_.end()) owner->second.battle.held = false; }
-    events_.push_back({"effect_expired:" + k, e.recipe.target, 0});
+    if (emitEvent) events_.push_back({"effect_expired:" + k, e.recipe.target, 0});
 }
 WorldOperation LegacyWorld::advance(I time) {
     if (time < nowMs_) return no(CombatOutcome::Rejected, "clock_went_backwards");
@@ -353,6 +391,9 @@ WorldOperation LegacyWorld::advance(I time) {
     } catch (const OperationFailure& e) {
         actors_ = oldActors; mobs_ = oldMobs; summons_ = oldSummons; effects_ = oldEffects; events_ = oldEvents; nowMs_ = oldTime;
         return e.result;
+    } catch (...) {
+        actors_ = oldActors; mobs_ = oldMobs; summons_ = oldSummons; effects_ = oldEffects; events_ = oldEvents; nowMs_ = oldTime;
+        return no(CombatOutcome::Unsupported, "effect_callback_failed");
     }
 }
 std::vector<CombatEvent> LegacyWorld::takeEvents() { auto result = std::move(events_); events_.clear(); return result; }
@@ -368,6 +409,8 @@ WorldOperation LegacyWorld::move(I id, BattlePosition requested, bool flight) {
         return no(CombatOutcome::Rejected, "movement_blocked");
     if (!movementRule_) return no(CombatOutcome::Unsupported, "source_collision_movement_adapter_missing");
     if (events_.size() + effects_.size() + 1 > EventLimit) return no(CombatOutcome::Unsupported, "event_capacity");
+    const auto oldActors = actors_; const auto oldMobs = mobs_; const auto oldSummons = summons_;
+    const auto oldEffects = effects_; const auto oldEvents = events_;
     try {
         const auto result = movementRule_(it->second, requested, flight);
         if (!result.first) return result.first;
@@ -386,6 +429,15 @@ WorldOperation LegacyWorld::move(I id, BattlePosition requested, bool flight) {
         }
         events_.push_back({"moved", id, flight ? 1 : 0});
         return ok();
-    } catch (const std::exception& e) { return no(CombatOutcome::Unsupported, e.what()); }
+    } catch (const std::exception& e) {
+        actors_ = oldActors; mobs_ = oldMobs; summons_ = oldSummons; effects_ = oldEffects; events_ = oldEvents;
+        return no(CombatOutcome::Unsupported, e.what());
+    } catch (const OperationFailure& e) {
+        actors_ = oldActors; mobs_ = oldMobs; summons_ = oldSummons; effects_ = oldEffects; events_ = oldEvents;
+        return e.result;
+    } catch (...) {
+        actors_ = oldActors; mobs_ = oldMobs; summons_ = oldSummons; effects_ = oldEffects; events_ = oldEvents;
+        return no(CombatOutcome::Unsupported, "movement_callback_failed");
+    }
 }
 } // namespace game::legacy

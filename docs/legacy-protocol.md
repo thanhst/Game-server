@@ -1,4 +1,9 @@
-# Hunr2026 binary protocol
+# Hunr2026 Java wire format: offline reference
+
+The running server now uses the ordinary ServerEngine TCP protocol documented
+in `client-wire-protocol.md`. `LegacyCodec` remains an offline compatibility
+reference and fixture/replay tool. Its XOR/Base64 and 24/28-bit framing below
+are not used by `LegacyApplication`.
 
 This module ports the server-side framing and primitive serialization used by the
 Java source in `Sample game old/HUNR_Server_Java/Hunr2026`. It is a protocol adapter:
