@@ -33,7 +33,6 @@ struct EffectDefinition {
 struct SkillDefinition {
     std::string id;
     std::string name;
-    int legacyId = -1;
     double manaCost = 0;
     bool manaPercent = false;
     Milliseconds cooldown = 0;
@@ -46,7 +45,6 @@ struct SkillDefinition {
 struct CharacterDefinition {
     std::string id;
     std::string name;
-    int legacyClass = -1;
     Attributes attributes;
     std::set<std::string> tags;
     std::vector<std::string> skills;

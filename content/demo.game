@@ -1,4 +1,4 @@
-# New illustrative balance for the C++ prototype; NOT parity with HUNR2026.
+# Illustrative balance for the C++ prototype.
 # Definitions use semantic IDs. No client sprites, audio, maps, or binary assets.
 
 [map arena]
@@ -120,37 +120,34 @@ cooldown_ms=12000
 target=self
 effects=rage_attack
 
-[character earth]
-name=Earth fighter
-legacy_class=0
+[character guardian]
+name=Guardian
 stat.hp=120
 stat.mana=100
 stat.attack=15
 stat.defense=5
 stat.speed=8
-tags=player,earth
+tags=player,guardian
 skills=melee,energy,shield,stun
 
-[character namek]
-name=Namek guardian
-legacy_class=1
+[character medic]
+name=Medic
 stat.hp=140
 stat.mana=120
 stat.attack=12
 stat.defense=6
 stat.speed=7
-tags=player,namek
+tags=player,medic
 skills=melee,energy,heal,poison
 
-[character saiyan]
-name=Saiyan warrior
-legacy_class=2
+[character striker]
+name=Striker
 stat.hp=150
 stat.mana=80
 stat.attack=19
 stat.defense=4
 stat.speed=8
-tags=player,saiyan
+tags=player,striker
 skills=melee,energy,shield,rage
 
 [character mob]

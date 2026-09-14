@@ -1,6 +1,6 @@
 # Development protocol GAME/1
 
-This executable hosts the new C++ gameplay prototype. It binds only to `127.0.0.1`, has no authentication, keeps characters only in memory, and runs one world on one owner thread. It does not support the old HUNR client or database. The `mob` training creature is a stationary target; this slice does not include AI or respawn.
+This executable hosts the C++ gameplay prototype. It binds only to `127.0.0.1`, has no authentication, keeps characters only in memory, and runs one world on one owner thread. The `mob` training creature is a stationary target; this slice does not include AI or respawn.
 
 ## Start modes
 
@@ -50,7 +50,7 @@ Transport configuration limits this host to 32 connections, 4096-byte messages, 
 With the bundled definitions and a fresh process, the printed dummy ID is 1 and the first created character ID is 2. Use the actual returned IDs if these differ. The skill `energy` has range 24; movement accrues at most one second of speed credit.
 
 ```text
-GAME/1 CREATE earth Thanh
+GAME/1 CREATE guardian Thanh
 GAME/1 ENTITIES
 GAME/1 TICK 1000
 GAME/1 MOVE 108 100
@@ -72,15 +72,9 @@ The client uses only Python's standard library, connects only to localhost, and 
 
 ```powershell
 python scripts/debug_client.py --port 7777
-python scripts/debug_client.py --port 7777 --command "CREATE earth Thanh" --command STATE --command ENTITIES
+python scripts/debug_client.py --port 7777 --command "CREATE guardian Thanh" --command STATE --command ENTITIES
 ```
 
-Interactive input can omit `GAME/1`, for example `CREATE namek Healer`. The receiver prints asynchronous events. Scripted mode waits for each direct reply and prints event frames encountered while waiting. It returns a nonzero exit code for protocol errors. Closing the client discards its in-memory character. Use multiple terminals for separate sessions; all playable clients use the same team.
-
-## Legacy compatibility boundary
-
-The recovered Java source under `Sample game old/HUNR_Server_Java/Hunr2026/src/main/java` uses a different protocol. In `com/ngocrong/network/Session.java`, `doSendMessage` (line 284) uses a command byte plus a 24-bit length, Base64 payloads, and rolling XOR. Selected outbound resource messages use special 28-bit length packing. `readMessage` (line 1542) decodes the 24-bit inbound format; batching is implemented near line 350. `MessageHandler.java` routes legacy attack/select/nonfocus commands into `Player` and `Zone`.
-
-Those facts require a separate legacy codec, handshake/auth/resource implementation, and captured protocol fixtures before old clients can connect. `GAME/1` deliberately makes its version visible and shares no wire compatibility claim with that Java source. No client assets, production account credentials, or SQL persistence are required for this development protocol.
+Interactive input can omit `GAME/1`, for example `CREATE medic Healer`. The receiver prints asynchronous events. Scripted mode waits for each direct reply and prints event frames encountered while waiting. It returns a nonzero exit code for protocol errors. Closing the client discards its in-memory character. Use multiple terminals for separate sessions; all playable clients use the same team.
 
 Protocol tests are in `tests/ProtocolTests.cpp`. They exercise parser bounds, versioning, ownership, non-player creation rejection, numeric edge cases, gameplay dispatch, disconnect cleanup, and console-only time advancement without sockets. They are provided for your manual build/test workflow; no build or runtime verification was performed while creating these files.

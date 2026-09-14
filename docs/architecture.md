@@ -1,30 +1,19 @@
-# Kiến trúc game C++
+# C++ Game Architecture
 
-Mục tiêu là mở rộng nội dung và cơ chế game mà không gom mọi thứ vào `Player`.
-Mã Java là nguồn đối chiếu hành vi; không giữ kiểu singleton toàn cục và mỗi zone
-tự tạo thread của bản cũ.
+The project is a small, data-driven gameplay host on top of ServerEngine. It is
+structured so new characters, skills, effects, and maps can be added through
+content first, and through focused C++ handlers only when behavior needs new
+code.
 
-## Host và profile hiện tại
-
-Host mới gọi `application::GameModule` với một payload hoàn chỉnh từ
-`SE_PROTOCOL_TCP`. `TcpHost` không biết kỹ năng, tài khoản hay format nhân vật.
-`BinaryPacketCodec` đọc command byte và payload nhị phân; `LegacyApplication`
-giữ phiên bản, xác thực và cache. `LegacyGameplay` là điểm nối gameplay có thể
-thay thế. `IdentityStore` tách persistence; SQLite hiện dùng cho account/character
-cục bộ và giữ revision để chặn stale save.
-
-`LegacyWorld` giữ definition bất biến, actor/mob riêng, learned skills, cooldown
-và effect timeline; RNG được inject để đối chiếu/replay. Luật HUNR nằm trong
-profile legacy; game mới có thể dùng registry ID chuỗi bên dưới. Host chưa cài
-full gameplay adapter cho mọi luồng Java. Các mục bên dưới mô tả world demo.
+## Runtime Flow
 
 ```mermaid
 flowchart LR
-    Client[Development client] --> Engine[ServerEngine C ABI]
-    Engine --> Host[WorldConnection: poll / fixed tick]
+    Client[Debug client] --> Engine[ServerEngine C ABI]
+    Engine --> Host[WorldConnection]
     Console[Console] --> Protocol[DebugProtocol]
     Host --> Protocol
-    Protocol --> World[World: owns entities and timers]
+    Protocol --> World[World]
     Content[Content definitions] --> World
     Registry[EffectRegistry] --> World
     World --> Events[GameEvent]
@@ -32,85 +21,67 @@ flowchart LR
     Host --> Engine
 ```
 
-## Ownership và thread
+`main` loads `content/demo.game`, creates one `World`, and either runs console
+mode or starts the ServerEngine TCP host. ServerEngine owns socket I/O and frame
+assembly. The game code receives complete `GAME/1` text messages and emits text
+responses/events.
 
-`main` sở hữu `World`. World giữ một bản content riêng, registry riêng và tập
-entity theo ID ổn định. Session chỉ giữ `EntityId`, không giữ con trỏ sở hữu nhân
-vật. Mỗi instance world chỉ có một thread cập nhật; luồng I/O của ServerEngine
-đưa sự kiện vào hàng đợi DLL và không sửa HP, mana hoặc cooldown.
+## Ownership
 
-World demo hiện là một shard trong RAM. Lặp qua entity bằng `std::map` cho thứ tự ổn
-định. Chưa có distributed shard, migration giữa process, AOI/spatial index,
-database hay cơ chế khôi phục nhân vật khi kết nối lại. Entity đã despawn không
-dùng lại ID. Server transport có RAII stop/destroy và đóng khi mất sự kiện.
+`World` owns all entities, timers, cooldowns, effects, and event queues. A
+network session stores only the entity ID that it created. Client input can ask
+to move or cast, but only `World` mutates HP, mana, cooldowns, effect timelines,
+and positions.
 
-Khi thêm persistence, đặt I/O ở worker/repository ngoài world. Chuyển snapshot
-bất biến hoặc ID + version qua queue; chỉ áp kết quả về world tại tick sau khi
-kiểm tra entity/session generation. Không đưa SQL hoặc callback I/O vào effect.
+The current host runs a single in-memory world. It has no database, shard
+migration, reconnect persistence, AI, respawn, AOI, trading, inventory, quests,
+or production account system yet. Those systems should be added outside the
+effect callbacks and applied to the world through explicit commands/snapshots.
 
-## Một lần dùng kỹ năng
+## Skills And Effects
 
-`Session → DebugProtocol::dispatch → World::cast → ordered effect list → GameEvent`.
+`SkillDefinition` is data: target rule, mana cost, cooldown, range, radius,
+maximum targets, and an ordered list of effect IDs. `EffectDefinition` is data:
+handler ID, amount, scaling attribute, duration, period, stacking policy, tags,
+and visual event ID.
 
-World kiểm tra quyền dùng skill, còn sống, control tags, cooldown, mana, quan hệ
-đồng minh/kẻ địch, map và khoảng cách trước khi trả chi phí. Mục tiêu chính đứng
-đầu; AoE chọn thêm mục tiêu gần nó theo khoảng cách và ID. Giới hạn effect và
-event được kiểm tra trước mutation. Damage/heal chỉ đi qua world, không nhận HP
-hoặc mana mới từ client.
+The built-in handlers cover:
 
-`SkillDefinition` là dữ liệu dùng chung; `Entity::cooldowns` là trạng thái riêng.
-`EffectDefinition` là dữ liệu dùng chung; `ActiveEffect` giữ nguồn gây hiệu ứng,
-power tại lúc áp, số stack, thời điểm hết hạn, nhịp tick, modifier và shield pool.
-Hiệu ứng cùng ID từ hai nguồn khác nhau có hai instance.
+- `damage`
+- `heal`
+- `periodic_damage`
+- `modifier`
+- `control`
+- `shield`
 
-Nhịp simulation dùng số nguyên milliseconds; advance không được quay ngược.
-Các tick đúng tại thời điểm hết hạn chạy trước bước expire. Gia hạn giữ nhịp
-periodic đang chờ, kể cả nhịp nằm sau thời điểm hết hạn cũ. Event được thu sau mỗi
-lệnh/nhịp bởi host; bước console quá lớn có thể bị từ chối do event budget.
+To add a data-only skill, define an effect, define a skill that references it,
+and add the skill to a character. To add a new mechanic, register an
+`EffectHandler` with validation before creating the world. The `WorldTests`
+fixture includes a custom `regeneration` handler example.
 
-## Thêm nội dung
+## Simulation Rules
 
-- Nhân vật: thêm `[character id]`, các `stat.*`, tags và danh sách skill.
-- Kỹ năng: thêm `[skill id]`, target/cost/cooldown/range và danh sách effect theo thứ tự.
-- Biến thể hiệu ứng: thêm `[effect id]` dùng một handler hiện có và tham số khác.
-- Cơ chế mới: đăng ký `EffectHandler` bằng `EffectRegistry::add` trước khi tạo world,
-  kèm validator và test cho hành vi. Ví dụ regeneration nằm trong WorldTests.
-- Thuộc tính: thêm key trong `Attributes`; effect modifier có thể tham chiếu key đó.
-  System thực sự sử dụng thuộc tính vẫn phải được lập trình, chẳng hạn crit hoặc dodge.
+World time is integer milliseconds and cannot move backward. Network mode
+advances in fixed 50 ms ticks; console mode advances only through `TICK`.
+Periodic ticks at the expiry timestamp run before the effect expires.
 
-Callback effect chỉ được sửa tài nguyên của target qua world và dữ liệu instance;
-không spawn/despawn/cast đệ quy hoặc sửa vector effects/lịch tick trong callback.
-`EffectHandler::maxResourceCallsPerCallback` khai báo số lần tối đa mỗi callback
-gọi `World::damage` hoặc `World::heal`: mặc định 1, cho phép 0..256. Handler chỉ
-sửa modifier/control/shield dùng 0. Tài nguyên và shield phải hữu hạn, không âm.
-World dự trù cả absorption, damage/heal, death, visual và effect expiry trước
-khi cast hoặc advance; thiếu chỗ trong queue thì trả `event_budget` trước khi
-trừ mana/cooldown hoặc đổi clock/state. Advance bị từ chối có thể cần drain event
-và chia interval nhỏ hơn; nếu một mốc tick vẫn quá lớn thì phải giảm workload.
-Spawn và move cũng kiểm tra queue trước khi đổi entity. Handler vi phạm bound
-hoặc ném exception là lỗi lập trình; hệ thống không rollback tùy ý code callback.
-Cơ chế summon, projectile, trigger đệ quy và delayed cast cần command queue/system riêng
-với phase rõ ràng; chưa được quảng cáo là có sẵn. Cơ chế này cho phép thêm handler
-trong code, không phải nạp DLL/script tùy ý lúc đang chạy.
+Before a command mutates state, the world checks ownership, alive state, control
+tags, cooldown, mana, map, target relation, range, effect limits, and event queue
+capacity. Rejected commands do not spend mana, consume cooldown, move entities,
+or emit partial events.
 
-## Combat của demo
+Damage, healing, shield absorption, death, movement, effect application,
+expiration, and visual notifications all become `GameEvent` records. The network
+host broadcasts events only to sessions that already created a character in the
+same map.
 
-Power = magnitude + effective caster attribute × scaling factor; được chụp khi
-áp effect. Damage = max(1, power − defense), sau đó trừ vào shield pool rồi HP.
-Heal không tự revive. Modifier được cộng vào base stat khi đọc và bỏ khi expire,
-tránh cộng/trừ lặp gây lệch stat. Thay max HP/mana sẽ clamp tài nguyên hiện tại.
-Control tags `stunned`, `silenced`, `rooted` được world đọc; visual chỉ phát ID cho
-client, server không chứa ảnh hoặc renderer. Số thực và các cap của demo khác
-số nguyên và các ngoại lệ combat Java; xem migration-status.
+## Resources
 
-## Ranh giới của ServerEngine
+The server does not load sprites, audio, Unity assets, map images, or tile
+atlases. Content can emit stable IDs such as `visual=energy_burst`; the client
+decides how those IDs map to actual assets. Server-side map definitions currently
+need only simulation dimensions.
 
-Host gọi `se_server_create/add_listener/start/poll_event/send/stop/destroy` qua
-public C ABI. Không đổi source submodule. DLL xử lý length TCP 4 byte big endian;
-payload live là command byte + dữ liệu nhị phân, không có frame Java lồng bên
-trong và không XOR/Base64. Người dùng đã chọn sửa client cho format này.
-Codec HUNR cũ chỉ dùng làm nguồn so sánh ngoại tuyến.
-
-Các test C++ đã được viết cho lifecycle, extension, parser và protocol, nhưng
-chưa compile hoặc chạy theo yêu cầu không build. Kiểm tra source không chứng minh
-khả năng chịu tải, độ trễ, Windows/Linux runtime hay độ tương thích client cũ.
+If a future client uses Unity, Tiled, LDtk, asset bundles, or a custom binary map
+format, keep that pipeline on the client/resource side. Only send IDs and
+authoritative gameplay state across the protocol.

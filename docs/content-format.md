@@ -1,6 +1,6 @@
 # Gameplay content format
 
-`content/demo.game` is a new, illustrative set of combat values for the C++ prototype. Its three player archetypes reference the Earth, Namek, and Saiyan class concepts in HUNR2026. The numbers, skill combinations, timings, and shield behavior are **not legacy balance parity**. The shield is a finite absorption pool; it does not reduce every hit to one damage. `visual` contains an event identifier, not an asset path. No image, sound, or other client resource is required by the simulation.
+`content/demo.game` is an illustrative set of combat values for the C++ prototype. It is ordinary game data: the server does not require image, sound, map binary, or other client resources to run the simulation. The shield is a finite absorption pool, and `visual` contains a client-facing event identifier rather than an asset path.
 
 ## File grammar
 
@@ -16,7 +16,7 @@ list := identifier (',' identifier)*
 
 Section kinds, keys, identifiers, and enum values are case sensitive. Spaces and tabs may surround a section's kind/identifier and each list item. Each entry belongs to the last section. Forward references are allowed. A section ID may appear in different kinds, but cannot repeat within one kind. Keys and list items cannot repeat. A section cannot be reopened later. Unknown section kinds or keys, empty keys/values, empty list elements, and malformed headers are errors. To specify an empty optional list, omit its key.
 
-Decimal values accept an optional `+` or `-`, a decimal point, and an optional `e`/`E` exponent: `12`, `-0.5`, `.25`, `1.`, `+2e3`. At least one mantissa digit is required. Hex numbers, NaN, infinity, overflow, unrepresentable underflow, comma decimal separators, and trailing text are rejected. Integer fields accept base-10 digits only; only `legacy_id` and `legacy_class` allow a leading minus, and their minimum is `-1`. Integer fields do not accept `+`, decimals, or exponents. Booleans are exactly `true` or `false`.
+Decimal values accept an optional `+` or `-`, a decimal point, and an optional `e`/`E` exponent: `12`, `-0.5`, `.25`, `1.`, `+2e3`. At least one mantissa digit is required. Hex numbers, NaN, infinity, overflow, unrepresentable underflow, comma decimal separators, and trailing text are rejected. Integer fields accept base-10 digits only and do not accept signs, decimals, or exponents. Booleans are exactly `true` or `false`.
 
 Limits are deliberate validation boundaries, adjustable in `Content.cpp`: 64 MiB per file; 16,384 bytes per line; 10,000 definitions per kind; 256 items per list or attributes per character; 128 bytes per identifier; 512 bytes per name or visual. Names/visuals cannot contain control characters. Ordinary numeric values and attributes must be finite and within `[-1e9, 1e9]`. Attributes are extensible string keys, not enum members.
 
@@ -71,7 +71,6 @@ effects=frost_damage
 | Key | Default | Constraints / meaning |
 | --- | --- | --- |
 | `name` | Required | Nonempty text. |
-| `legacy_id` | `-1` | Integer `-1..INT_MAX`; metadata, not a dispatch enum. |
 | `mana_cost` | `0` | `0..1e9`, or `0..100` when `mana_percent=true`. |
 | `mana_percent` | `false` | Cost is a percentage when true; `10` means ten percent. |
 | `cooldown_ms` | `0` | Integer `0..86400000`. |
@@ -99,7 +98,6 @@ skills=frost_bolt
 | Key | Default | Constraints / meaning |
 | --- | --- | --- |
 | `name` | Required | Nonempty text. |
-| `legacy_class` | `-1` | Integer `-1..INT_MAX`; optional migration metadata. |
 | `stat.<identifier>` | See below | Finite numeric attribute, within `[-1e9, 1e9]`. |
 | `tags` | Empty | Identifier list; demo player archetypes use `player`, mobs use `monster`. |
 | `skills` | Empty | List of existing skill IDs. |

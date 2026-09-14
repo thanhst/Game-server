@@ -148,7 +148,6 @@ void setEffect(EffectDefinition& d, const std::string& key, const std::string& v
 
 void setSkill(SkillDefinition& d, const std::string& key, const std::string& value) {
     if (key == "name") d.name = value;
-    else if (key == "legacy_id") d.legacyId = integer<int>(value);
     else if (key == "mana_cost") d.manaCost = number(value);
     else if (key == "mana_percent") d.manaPercent = boolean(value);
     else if (key == "cooldown_ms") d.cooldown = integer<Milliseconds>(value);
@@ -166,7 +165,6 @@ void setSkill(SkillDefinition& d, const std::string& key, const std::string& val
 
 void setCharacter(CharacterDefinition& d, const std::string& key, const std::string& value) {
     if (key == "name") d.name = value;
-    else if (key == "legacy_class") d.legacyClass = integer<int>(value);
     else if (key == "skills") d.skills = list(value);
     else if (key == "tags") d.tags = tags(value);
     else if (key.compare(0, 5, "stat.") == 0) {
@@ -298,7 +296,6 @@ void Content::validate() const {
         const auto& d = pair.second;
         const auto context = "skill '" + d.id + "'";
         checkText(d.name, context + " name");
-        require(d.legacyId >= -1, context + ": legacy_id must be -1 or nonnegative");
         checkValue(d.manaCost, context + " mana_cost", 0, d.manaPercent ? 100 : MaxValue);
         require(d.cooldown <= MaxTime, context + ": cooldown exceeds 24 hours");
         checkValue(d.range, context + " range", 0, 1e6);
@@ -315,7 +312,6 @@ void Content::validate() const {
         const auto& d = pair.second;
         const auto context = "character '" + d.id + "'";
         checkText(d.name, context + " name");
-        require(d.legacyClass >= -1, context + ": legacy_class must be -1 or nonnegative");
         require(d.attributes.size() <= MaxListItems, context + ": at most 256 attributes allowed");
         for (const auto& stat : d.attributes) {
             checkId(stat.first, context + " attribute");

@@ -5,7 +5,6 @@
 void runContentTests();
 void runWorldTests();
 void runProtocolTests();
-void runLegacySkillTests();
 
 int main(int argc, char** argv)
 {
@@ -13,7 +12,6 @@ int main(int argc, char** argv)
         runContentTests();
         runWorldTests();
         runProtocolTests();
-        runLegacySkillTests();
         if (argc > 1) game::Content::load(argv[1]);
         std::cout << "Content, world, and protocol checks passed\n";
         return 0;
