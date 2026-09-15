@@ -1,3 +1,6 @@
 [submodule "external/ServerEngine"]
 	path = external/ServerEngine
 	url = https://github.com/thanhst/Server-engine.git
+[submodule "external/Logger"]
+	path = external/Logger
+	url = https://github.com/thanhst/Logger.git

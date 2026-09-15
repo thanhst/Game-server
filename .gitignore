@@ -27,18 +27,6 @@ __pycache__/
 /runtime/
 /config/*.local.json
 
-# The reference game is source-only; generated/runtime data stays local.
-/Sample game old/HUNR_Server_Java/Hunr2026/.m2/
-/Sample game old/HUNR_Server_Java/Hunr2026/resources/
-/Sample game old/HUNR_Server_Java/Hunr2026/data/
-/Sample game old/HUNR_Server_Java/Hunr2026/backup/
-/Sample game old/HUNR_Server_Java/Hunr2026/backup_sql/
-/Sample game old/HUNR_Server_Java/Hunr2026/AddItem/
-/Sample game old/HUNR_Server_Java/Hunr2026/BuyItem/
-/Sample game old/HUNR_Server_Java/Hunr2026/DropItem/
-/Sample game old/HUNR_Server_Java/Hunr2026/LogThoiVang/
-/Sample game old/HUNR_Server_Java/Hunr2026/logs/
-/Sample game old/HUNR_Server_Java/Hunr2026/SQL_HUNR_2025.sql
 *.zip
 *.rar
 *.7z
