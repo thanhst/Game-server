@@ -17,6 +17,9 @@ and can host local TCP clients on `127.0.0.1`.
   client, and the local TCP host.
 - `GameServer`: executable entry point for `--console`, `--validate-content`,
   and `--serve`.
+- `external/Logger`: C++17 logger linked through the `Logger::Logger` CMake
+  target. It is static by default in this project; set
+  `LOGGER_BUILD_SHARED=ON` to build a DLL/SO instead.
 - `content/demo.game`: source-only demo definitions. It contains no images,
   sounds, map binaries, account data, or client resources.
 

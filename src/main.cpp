@@ -2,6 +2,8 @@
 #include "game/World.h"
 #include "game/net/WorldConnection.h"
 
+#include <logger/logger.hpp>
+
 #include <algorithm>
 #include <charconv>
 #include <exception>
@@ -25,6 +27,11 @@ std::uint16_t parsePort(std::string_view text) {
     if (result.ec != std::errc{} || result.ptr != text.data() + text.size() || value == 0 || value > 65535)
         throw std::invalid_argument("port must be a decimal number in 1..65535");
     return static_cast<std::uint16_t>(value);
+}
+void writeLog(logger::Logger& log, logger::Level level, std::string_view message) {
+    const auto status = log.write(level, message);
+    if (status != LOGGER_STATUS_OK)
+        std::cerr << "GameServer logger: " << logger_status_string(status) << '\n';
 }
 template <typename Character>
 std::string asciiArgument(const Character* text) {
@@ -52,7 +59,9 @@ int applicationMain(int argc, Character* argv[]) {
         const std::filesystem::path path = argc > 2 ? std::filesystem::path(argv[2])
             : std::filesystem::path("content/demo.game");
         const auto port = argc > 3 ? parsePort(asciiArgument(argv[3])) : std::uint16_t{7777};
+        logger::Logger log;
         game::World world(game::Content::load(path));
+        writeLog(log, logger::Level::Info, "Loaded game content from " + path.u8string());
         if (mode == "--validate-content") {
             const auto& content = world.content();
             std::cout << "Valid content: maps=" << content.maps.size() << " characters=" << content.characters.size()
@@ -64,10 +73,14 @@ int applicationMain(int argc, Character* argv[]) {
         if (world.content().characters.count("mob")) {
             const auto id = world.spawn("mob", map->first, 2,
                 {std::min(140.0, map->second.width), std::min(100.0, map->second.height)}, "TrainingDummy");
-            std::cout << "Training dummy id=" << id << '\n';
+            writeLog(log, logger::Level::Info, "Spawned training dummy id=" + std::to_string(id));
         }
         world.takeEvents(); // Bootstrap events precede all sessions.
-        if (mode == "--serve") return game::net::runServer(world, port);
+        if (mode == "--serve") {
+            writeLog(log, logger::Level::Info, "Starting local TCP server on port " + std::to_string(port));
+            return game::net::runServer(world, port);
+        }
+        writeLog(log, logger::Level::Info, "Starting interactive console");
         return game::net::runConsole(world, std::cin, std::cout);
     } catch (const std::exception& error) {
         std::cerr << "GameServer: " << error.what() << '\n';
@@ -80,4 +93,3 @@ int wmain(int argc, wchar_t* argv[]) { return applicationMain(argc, argv); }
 #else
 int main(int argc, char* argv[]) { return applicationMain(argc, argv); }
 #endif
- 

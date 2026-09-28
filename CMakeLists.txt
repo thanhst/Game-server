@@ -30,6 +30,11 @@ target_link_libraries(GameProtocol PUBLIC GameDomain)
 gameserver_target_defaults(GameProtocol)
 
 if(GAMESERVER_BUILD_SERVER)
+    set(LOGGER_BUILD_SHARED OFF CACHE BOOL "Build Logger as a shared library")
+    set(LOGGER_BUILD_EXAMPLES OFF CACHE BOOL "Do not build Logger examples")
+    set(LOGGER_BUILD_TESTS OFF CACHE BOOL "Do not build Logger tests")
+    add_subdirectory(external/Logger EXCLUDE_FROM_ALL)
+
     set(SE_BUILD_DLL ON CACHE BOOL "GameServer requires the C ABI DLL" FORCE)
     set(SE_BUILD_GAME_EXAMPLE OFF CACHE BOOL "Do not build the engine's game sample")
     set(SE_BUILD_WEB_EXAMPLE OFF CACHE BOOL "Do not build the engine's web sample")
@@ -37,7 +42,7 @@ if(GAMESERVER_BUILD_SERVER)
     add_subdirectory(external/ServerEngine EXCLUDE_FROM_ALL)
 
     add_executable(GameServer src/main.cpp src/net/WorldConnection.cpp)
-    target_link_libraries(GameServer PRIVATE GameProtocol ServerEngineDll)
+    target_link_libraries(GameServer PRIVATE GameProtocol ServerEngineDll Logger::Logger)
     gameserver_target_defaults(GameServer)
     set_target_properties(GameServer PROPERTIES
         VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}")
@@ -52,6 +57,12 @@ if(GAMESERVER_BUILD_SERVER)
             COMMAND ${CMAKE_COMMAND} -E copy_if_different
                 "$<TARGET_FILE:ServerEngineDll>" "$<TARGET_FILE_DIR:GameServer>"
             VERBATIM)
+        if(LOGGER_BUILD_SHARED)
+            add_custom_command(TARGET GameServer POST_BUILD
+                COMMAND ${CMAKE_COMMAND} -E copy_if_different
+                    "$<TARGET_FILE:Logger>" "$<TARGET_FILE_DIR:GameServer>"
+                VERBATIM)
+        endif()
     endif()
     set_property(DIRECTORY PROPERTY VS_STARTUP_PROJECT GameServer)
 endif()
