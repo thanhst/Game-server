@@ -1,5 +1,8 @@
 #pragma once
 
+#include "game/Position.h"
+#include "game/world/CollisionGeometry.h"
+
 #include <cstdint>
 #include <filesystem>
 #include <map>
@@ -11,7 +14,6 @@ namespace game {
 using EntityId = std::uint64_t;
 using Milliseconds = std::uint64_t;
 using Attributes = std::map<std::string, double>;
-struct Position { double x = 0; double y = 0; };
 enum class TargetRule { Self, Enemy, Ally };
 enum class Stacking { Refresh, Stack, Replace };
 
@@ -53,6 +55,7 @@ struct MapDefinition {
     std::string id;
     double width = 0;
     double height = 0;
+    std::vector<ConvexPolygon> walls;
 };
 struct Content {
     std::map<std::string, EffectDefinition> effects;

@@ -38,6 +38,29 @@ migration, reconnect persistence, AI, respawn, AOI, trading, inventory, quests,
 or production account system yet. Those systems should be added outside the
 effect callbacks and applied to the world through explicit commands/snapshots.
 
+`Vitality` and `Mana` are designed as resident-owned C++ value components.
+`Vitality` owns health, death transitions, healing, and explicit revival;
+`Mana` owns atomic spending and restoration. They validate finite amounts and
+keep current values within their maximums. The current `Entity` runtime still
+stores `hp` and `mana` directly. When `Resident` replaces that runtime model,
+move those fields into the components in one migration so there is only one
+authoritative value for each resource.
+
+The new object hierarchy is `Object -> WorldObject -> Resident -> Player/Creature`.
+`Object` owns a nonzero `ObjectId` and kind. `WorldObject`
+adds a map and finite position; `MapInstance` commits bounded moves and transfers.
+`Resident` owns `Vitality` and `Mana` by value. `Player` and `Creature` are
+concrete resident types; their distinct gameplay behavior will be added with
+player input and creature AI. The caller currently supplies object IDs, so
+uniqueness across a world will need to be enforced by its future object store.
+
+`MapInstance` checks rectangular world-unit bounds, static convex-polygon wall
+collision, and resident membership, and commits moves and map transfers with the
+resident's location. It does not yet perform tile or dynamic-object collision.
+Client camera
+projection is described in [coordinates.md](coordinates.md) and lives in the
+separate `GameViewMath` target.
+
 ## Skills And Effects
 
 `SkillDefinition` is data: target rule, mana cost, cooldown, range, radius,

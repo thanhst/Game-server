@@ -21,9 +21,17 @@ list(REMOVE_DUPLICATES VCPKG_MANIFEST_FEATURES)
 project(GameServer VERSION 0.2.0 LANGUAGES C CXX)
 include(cmake/CompilerOptions.cmake)
 
-add_library(GameDomain STATIC src/content/Content.cpp src/game/World.cpp)
+add_library(GameDomain STATIC src/content/Content.cpp src/game/World.cpp
+    src/object/Object.cpp src/object/WorldObject.cpp
+    src/resident/Vitality.cpp src/resident/Mana.cpp src/resident/Resident.cpp
+    src/resident/Player.cpp src/resident/Creature.cpp
+    src/world/CollisionGeometry.cpp src/world/MapInstance.cpp)
 target_include_directories(GameDomain PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
 gameserver_target_defaults(GameDomain)
+
+add_library(GameViewMath STATIC src/view/Camera2D.cpp)
+target_include_directories(GameViewMath PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
+gameserver_target_defaults(GameViewMath)
 
 add_library(GameProtocol STATIC src/net/DebugProtocol.cpp)
 target_link_libraries(GameProtocol PUBLIC GameDomain)
@@ -69,9 +77,10 @@ endif()
 
 if(GAMESERVER_BUILD_TESTS)
     enable_testing()
-    add_executable(GameDomainTests tests/TestMain.cpp tests/WorldTests.cpp
+    add_executable(GameDomainTests tests/TestMain.cpp tests/ResourceTests.cpp tests/ObjectTests.cpp
+        tests/MapTests.cpp tests/CameraTests.cpp tests/WorldTests.cpp
         tests/ContentTests.cpp tests/ProtocolTests.cpp)
-    target_link_libraries(GameDomainTests PRIVATE GameProtocol)
+    target_link_libraries(GameDomainTests PRIVATE GameProtocol GameViewMath)
     gameserver_target_defaults(GameDomainTests)
     add_test(NAME GameDomainTests COMMAND GameDomainTests "${CMAKE_CURRENT_SOURCE_DIR}/content/demo.game")
 endif()
